@@ -3,6 +3,15 @@
 Stand 21.09.2026. Alle Messungen auf einem Mac mit M5 Max und 128 GB, macOS 27.2, Xcode 27,
 Swift 6.4, coremltools 9.0, transformers 4.57.6, torch 2.8, laya 0.3.4.
 
+Die kev-Zahlen unten stammen aus den festen Exporten `Kev06B-Q4-fp16` (L=512) und
+`Kev06B-L1024-Q4K96-fp16` sowie dem Pool aus drei Buckets. Seit dem Abend desselben Tages
+ersetzt sie ein Paket, `JevCoreML.mlpackage`, mit sechs aufgezählten Längen von 128 bis 3072,
+acht Fragen und 256 Optionen; bei 512 Token liefert es auf der GPU bitgleiche Logits mit
+`Kev06B-Q4-fp16`, über alle Längen 0 Argmax-Flips gegen PyTorch
+(`Benchmarks/fanout-parity-JevCoreML.json`). Die Paritäts- und Trefferquotenmessungen hier
+bleiben damit gültig. Anders sind der Dateiname, das Rechenwerk (`JevRuntime` setzt `.all`
+jetzt selbst auf `.cpuAndGPU`) und die Einmalkosten, beides in der README.
+
 Gemessen wird ein Port: kev-0.6b, ein Qwen3-0.6B-Base mit LoRA und Pointer-Head, läuft statt in
 PyTorch nativ über Core ML. Die Frage ist zweigeteilt. Kommen dieselben Zahlen heraus? Und ist
 das Ergebnis mit dem vergleichbar, was für Jev veröffentlicht ist?
@@ -125,8 +134,9 @@ Skill-Routing, fünf Optionen, 15 Läufe, Median:
 | fp16 | 251 ms | 19 ms | 86 ms | 19 ms |
 | fp32 | 497 ms | 101 ms | 496 ms | 101 ms |
 
-Vorgabe ist `.all`, und Core ML legt fp16 dabei auf die GPU: 19 ms wie mit `.cpuAndGPU`. Wer
-sichergehen will, setzt `.cpuAndGPU` ausdrücklich. Die Neural Engine ist hier langsamer als die GPU: das Modell
+Beim festen Export legte Core ML fp16 unter `.all` auf die GPU: 19 ms wie mit `.cpuAndGPU`.
+Seit dem Paket mit sechs Längen setzt `JevRuntime` `.all` selbst auf `.cpuAndGPU`, siehe den
+Stand am Anfang. Die Neural Engine ist hier langsamer als die GPU: das Modell
 ist für sie nicht zugeschnitten, und bei L=512 dominiert der Datentransport.
 
 ### 3.2 Mehrere Fragen

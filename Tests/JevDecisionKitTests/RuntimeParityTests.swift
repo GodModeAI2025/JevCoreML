@@ -31,7 +31,9 @@ final class RuntimeParityTests: XCTestCase {
     /// in Python gemessen hat, nicht einem Wunschwert.
     private func tolerance(for model: URL) -> Double {
         if let raw = ProcessInfo.processInfo.environment["JEV_TOLERANCE"], let v = Double(raw) { return v }
-        return model.lastPathComponent.contains("fp16") ? 2e-2 : 1e-4
+        // Nur ein ausdrücklich als fp32 benanntes Paket bekommt die enge Grenze. Alles andere
+        // rechnet in fp16, auch JevCoreML.mlpackage, das die Genauigkeit nicht im Namen trägt.
+        return model.lastPathComponent.contains("fp32") ? 1e-4 : 2e-2
     }
 
     /// Der Vertrag wird am Modell abgelesen, nicht konfiguriert. Geprüft wird, dass die
@@ -39,9 +41,11 @@ final class RuntimeParityTests: XCTestCase {
     func testModelContract() throws {
         guard let (runtime, model) = try makeRuntime() else { return }
         let name = model.lastPathComponent
-        let expectedFanOut = name.contains("-Q")
+        // JevCoreML.mlpackage ist das Universalpaket auf kev-0.6b; sein Vertrag steht nicht im Dateinamen.
+        let universal = name.hasPrefix("JevCoreML")
+        let expectedFanOut = universal || name.contains("-Q")
         XCTAssertEqual(runtime.contract, expectedFanOut ? .fanOut : .singleQuestion)
-        XCTAssertEqual(runtime.maxQuestions, expectedFanOut ? 4 : 1)
+        XCTAssertEqual(runtime.maxQuestions, universal ? 8 : (expectedFanOut ? 4 : 1))
 
         // Nicht "mindestens so gross wie der Referenzexport": ein kleinerer Bucket ist erlaubt.
         // Verlangt ist, dass das Modell die laengste Golden-Sequenz und die meisten Optionen fasst.
@@ -50,6 +54,15 @@ final class RuntimeParityTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(runtime.sequenceLength, longest,
                                     "Modell fasst die laengste Golden-Sequenz nicht")
         XCTAssertGreaterThanOrEqual(runtime.maxOptions, widest)
+        // Das Universalpaket trägt seinen Vertrag nicht im Namen, sondern ist einer: sechs
+        // Längen von 128 bis 3072, acht Fragen, 256 Optionen.
+        if universal {
+            XCTAssertEqual(runtime.sequenceLengths, [128, 256, 512, 1024, 2048, 3072])
+            XCTAssertEqual(runtime.sequenceLength, 3072)
+            XCTAssertEqual(runtime.maxOptions, 256)
+            return
+        }
+        XCTAssertEqual(runtime.sequenceLengths, [runtime.sequenceLength])
         // Die Zahlen im Dateinamen müssen zum Modell passen, sonst liegt das falsche Budget an.
         if let range = name.range(of: #"L(\d+)"#, options: .regularExpression) {
             XCTAssertEqual(Int(name[range].dropFirst()), runtime.sequenceLength)

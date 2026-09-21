@@ -13,10 +13,12 @@ import Foundation
 public actor SystemOnePool {
     public struct Member: Sendable {
         public let url: URL
+        /// Die größte Länge des Exports; ein Universalpaket nimmt darunter weitere an.
         public let sequenceLength: Int
         public let maxQuestions: Int
         public let maxOptions: Int
         public let contract: JevRuntime.Contract
+        public var sequenceLengths: [Int] = []
     }
 
     private struct Entry {
@@ -86,7 +88,8 @@ public actor SystemOnePool {
                    sequenceLength: $0.runtime.sequenceLength,
                    maxQuestions: $0.runtime.maxQuestions,
                    maxOptions: $0.runtime.maxOptions,
-                   contract: $0.runtime.contract)
+                   contract: $0.runtime.contract,
+                   sequenceLengths: $0.runtime.sequenceLengths.count > 1 ? $0.runtime.sequenceLengths : [])
         }
     }
 
@@ -178,7 +181,8 @@ extension SystemOnePool: SystemOneEngine {
         members.map {
             EngineMember(file: $0.url.deletingPathExtension().lastPathComponent,
                          contract: $0.contract, sequenceLength: $0.sequenceLength,
-                         maxQuestions: $0.maxQuestions, maxOptions: $0.maxOptions)
+                         maxQuestions: $0.maxQuestions, maxOptions: $0.maxOptions,
+                         sequenceLengths: $0.sequenceLengths)
         }
     }
 }

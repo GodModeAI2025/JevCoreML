@@ -250,13 +250,13 @@ footer .wrap { display: grid; gap: 10px; }
         Jede Antwort ist eine Verteilung, keine Textgenerierung. Die Konfidenz ist kalibriert, also
         taugt sie als Schwelle: sicher genug, um zu handeln, oder an einen Menschen weitergeben.
         Die Balken unten sind echte Antworten von laya auf das Ticket aus dem Bild, in einem Aufruf,
-        25 ms.
+        27 ms.
       </p>
       <div class="cards">
         <div class="card">
           <div class="kind">Auswahl</div>
           <h3>An welches Team geht das Ticket?</h3>
-          <p>Beliebig viele Optionen, bei laya so viele, wie in die Sequenz passen.</p>
+          <p>Bis 256 Optionen bei kev, bei laya so viele, wie in die Sequenz passen.</p>
           <div class="answer">
             <div class="row"><span>billing</span><div class="bar"><i style="width:100%"></i></div><span class="pct">100 %</span></div>
             <div class="row"><span>sales</span><div class="bar"><i style="width:0%"></i></div><span class="pct">0 %</span></div>
@@ -295,7 +295,7 @@ footer .wrap { display: grid; gap: 10px; }
         <div class="card">
           <div class="kind">kev</div>
           <h3>Mehrere Fragen, ein Durchlauf</h3>
-          <p>Ein Decoder, der bis zu vier Fragen zum selben Text in einem Durchlauf beantwortet.
+          <p>Ein Decoder, der bis zu acht Fragen zum selben Text in einem Durchlauf beantwortet.
           Der HTTP-Server spricht das Format der TypeSafe-API; bestehende Clients zeigen einfach
           auf <code class="mono">localhost</code>.</p>
         </div>
@@ -318,7 +318,7 @@ footer .wrap { display: grid; gap: 10px; }
             <tr><td>laya, 4 Fragen, englisch</td><td class="num">314,8 ms</td><td class="num"><strong>33,6 ms</strong></td><td class="num">9,4×</td></tr>
             <tr><td>laya, 10 Fragen, englisch</td><td class="num">709,2 ms</td><td class="num"><strong>83,4 ms</strong></td><td class="num">8,5×</td></tr>
             <tr><td>laya, 1 Frage, deutsch</td><td class="num">37,4 ms</td><td class="num"><strong>6,0 ms</strong></td><td class="num">6,2×</td></tr>
-            <tr><td>kev, ganze Suite über HTTP</td><td class="num">59 ms</td><td class="num"><strong>22,7 ms</strong></td><td class="num">2,6×</td></tr>
+            <tr><td>kev, ganze Suite über HTTP, 1468 Fragen</td><td class="num">59 ms</td><td class="num"><strong>19 ms</strong></td><td class="num">3,1×</td></tr>
           </tbody>
         </table>
       </div>
@@ -385,7 +385,7 @@ curl -s localhost:8008/v1/systemone -d <span class="s">'{
 
       <h3 id="start" style="margin-top:44px">In vier Schritten zur ersten Entscheidung</h3>
       <ol class="steps" style="margin-top:16px">
-        <li><div>Repo klonen. Voraussetzung ist ein Mac mit Apple Silicon, macOS 15 und Xcode 16.</div></li>
+        <li><div>Repo klonen. Voraussetzung ist ein Mac mit Apple Silicon, macOS 15 und Xcode 16. Das Swift-Paket baut auch für iOS 18 und läuft im iPhone-Simulator, dort ohne GPU: kev trifft dieselben Entscheidungen wie PyTorch, die Wahrscheinlichkeiten liegen bis 0,01 daneben, beim gepackten Mehrfragenlauf bis 0,034; laya weicht bis 0,04 ab. Auf einem echten iPhone ist nichts gemessen.</div></li>
         <li><div><code>scripts/fetch-models.sh</code> lädt die Core-ML-Pakete aus dem Release und prüft die Prüfsummen.</div></li>
         <li><div><code>Demo/JevDemo.xcodeproj</code> öffnen und starten, oder <code>swift build</code> für die Kommandozeile.</div></li>
         <li><div>In der eigenen App das Paket einbinden und die Modelle als Ressourcen ins Target legen.</div></li>
@@ -397,19 +397,18 @@ curl -s localhost:8008/v1/systemone -d <span class="s">'{
     <div class="wrap">
       <h2>Die Modelle</h2>
       <p class="sub">
-        Jedes laya-Paket nimmt mehrere Eingabelängen an, und eine Frage läuft in der kürzesten, in
-        die sie passt. So rechnet auch das Original.
+        Jedes Paket nimmt mehrere Eingabelängen an, und eine Anfrage läuft in der kürzesten, in
+        die sie passt. So rechnet auch laya im Original. Für kev gibt es genau ein Paket: sechs
+        Längen bis 3072 Token, acht Fragen je Durchlauf, 256 Optionen je Frage. Nichts auszuwählen.
       </p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Paket</th><th>Wofür</th><th class="num">Längen</th><th class="num">Größe</th></tr></thead>
+          <thead><tr><th>Paket</th><th>Wofür</th><th class="num">Längen</th><th class="num">Fragen</th><th class="num">Optionen</th><th class="num">Größe</th></tr></thead>
           <tbody>
-            <tr><td class="mono">Laya-EN-L512-K512-fp16</td><td>englischer Text</td><td class="num">128–512</td><td class="num">805 MiB</td></tr>
-            <tr><td class="mono">Laya-ML-L1024-K1024-fp16</td><td>alle anderen Sprachen</td><td class="num">128–1024</td><td class="num">615 MiB</td></tr>
-            <tr><td class="mono">Laya-TD-L1024-K1024-fp16</td><td>vier feste Abläufe, auf Wunsch</td><td class="num">128–1024</td><td class="num">805 MiB</td></tr>
-            <tr><td class="mono">Kev06B-Q4-fp16</td><td>bis 4 Fragen und 8 Optionen je Durchlauf</td><td class="num">512</td><td class="num">1,1 GiB</td></tr>
-            <tr><td class="mono">Kev06B-L256-Q4-fp16</td><td>kurze Anfragen</td><td class="num">256</td><td class="num">1,1 GiB</td></tr>
-            <tr><td class="mono">Kev06B-L1024-Q4K96-fp16</td><td>bis 96 Optionen</td><td class="num">1024</td><td class="num">1,1 GiB</td></tr>
+            <tr><td class="mono">Laya-EN-L512-K512-fp16</td><td>englischer Text</td><td class="num">128–512</td><td class="num">1</td><td class="num">512</td><td class="num">805 MiB</td></tr>
+            <tr><td class="mono">Laya-ML-L1024-K1024-fp16</td><td>alle anderen Sprachen</td><td class="num">128–1024</td><td class="num">1</td><td class="num">1024</td><td class="num">615 MiB</td></tr>
+            <tr><td class="mono">Laya-TD-L1024-K1024-fp16</td><td>vier feste Abläufe, auf Wunsch</td><td class="num">128–1024</td><td class="num">1</td><td class="num">1024</td><td class="num">805 MiB</td></tr>
+            <tr><td class="mono">JevCoreML</td><td>kev-0.6b, alle Anwendungsfälle</td><td class="num">128–3072</td><td class="num">8</td><td class="num">256</td><td class="num">1,1 GiB</td></tr>
           </tbody>
         </table>
       </div>

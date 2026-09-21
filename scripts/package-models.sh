@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Packt die Core-ML-Modelle aus Models/ als ZIP-Dateien nach dist/, eine je Paket, dazu die
-# Tokenizer und Prüfsummen. Das sind die Dateien für das GitHub-Release models-v1, aus dem
+# Tokenizer und Prüfsummen. Das sind die Dateien für das GitHub-Release models-v2, aus dem
 # scripts/fetch-models.sh lädt. GitHub nimmt je Datei bis 2 GB, das größte Paket hat 1,1 GB.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-MODELS="${MODELS:-Laya-EN-L512-K512-fp16 Laya-ML-L1024-K1024-fp16 Laya-TD-L1024-K1024-fp16 Kev06B-Q4-fp16 Kev06B-L256-Q4-fp16 Kev06B-L1024-Q4K96-fp16}"
+MODELS="${MODELS:-Laya-EN-L512-K512-fp16 Laya-ML-L1024-K1024-fp16 Laya-TD-L1024-K1024-fp16 JevCoreML}"
 OUT="${OUT:-dist}"
 mkdir -p "$OUT"
 OUT="$(cd "$OUT" && pwd)"

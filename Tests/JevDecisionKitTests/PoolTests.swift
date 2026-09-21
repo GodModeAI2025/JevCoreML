@@ -3,10 +3,13 @@ import XCTest
 @testable import JevDecisionKit
 
 /// Shape-Buckets: mehrere Exporte, die Anfrage geht an den kleinsten passenden.
-/// Läuft nur, wenn mindestens zwei Exporte unter Models/ liegen.
+/// Läuft nur, wenn mindestens zwei Exporte unter Models/ liegen: die drei Zuschnitte aus
+/// `models-v1`, dazu das Paket `JevCoreML` als viertes Mitglied, wenn es da ist. Mit nur dem
+/// einen Paket aus `models-v2` werden die Tests als übersprungen gemeldet, nicht als grün.
 final class PoolTests: XCTestCase {
     private func poolModels() -> [URL] {
-        ["Kev06B-L256-Q4-fp16.mlpackage", "Kev06B-Q4-fp16.mlpackage", "Kev06B-L1024-Q4K96-fp16.mlpackage"]
+        ["Kev06B-L256-Q4-fp16.mlpackage", "Kev06B-Q4-fp16.mlpackage", "Kev06B-L1024-Q4K96-fp16.mlpackage",
+         "JevCoreML.mlpackage"]
             .map { Fixtures.models.appendingPathComponent($0) }
             .filter { FileManager.default.fileExists(atPath: $0.path) }
     }
@@ -16,10 +19,10 @@ final class PoolTests: XCTestCase {
         guard urls.count >= 2 else {
             if Fixtures.requiresModel {
                 XCTFail("JEV_REQUIRE_MODEL=1, aber es liegen weniger als zwei Exporte unter Models/")
-            } else {
-                print("weniger als zwei Exporte unter Models/, Pool-Tests übersprungen")
+                return nil
             }
-            return nil
+            throw XCTSkip("weniger als zwei kev-Exporte unter Models/; die Pool-Tests brauchen die drei "
+                + "Zuschnitte aus models-v1 neben JevCoreML.mlpackage")
         }
         // 4 GiB je Export statt der 16 GiB für einen Server: der Testprozess macht nur eine
         // Handvoll Vorhersagen, und die Payload-Dateien entstehen vor allem unter Dauerlast.

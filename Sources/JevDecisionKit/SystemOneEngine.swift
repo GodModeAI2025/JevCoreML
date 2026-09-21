@@ -22,9 +22,13 @@ public protocol SystemOneEngine: Sendable {
 public struct EngineMember: Sendable, Equatable {
     public let file: String
     public let contract: JevRuntime.Contract
+    /// Die größte Sequenzlänge des Exports.
     public let sequenceLength: Int
     public let maxQuestions: Int
     public let maxOptions: Int
+    /// Die Längen, die die Laufzeit benutzt, aufsteigend: die des Pakets, geschnitten mit
+    /// `Configuration.sequenceLengths`. Leer, wenn es nur die eine ist.
+    public var sequenceLengths: [Int] = []
 }
 
 extension SystemOne: SystemOneEngine {
@@ -51,6 +55,7 @@ extension SystemOne: SystemOneEngine {
     public func members() async -> [EngineMember] {
         [EngineMember(file: runtime.modelName, contract: runtime.contract,
                       sequenceLength: runtime.sequenceLength,
-                      maxQuestions: runtime.maxQuestions, maxOptions: runtime.maxOptions)]
+                      maxQuestions: runtime.maxQuestions, maxOptions: runtime.maxOptions,
+                      sequenceLengths: runtime.sequenceLengths.count > 1 ? runtime.sequenceLengths : [])]
     }
 }

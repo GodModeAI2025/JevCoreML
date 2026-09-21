@@ -1,0 +1,72 @@
+{
+  "model": "../Models/JevCoreML.mlpackage",
+  "compare": "../Models/Kev06B-Q4-fp16.mlpackage",
+  "lengths": [
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    3072
+  ],
+  "questions": 8,
+  "options": 256,
+  "units": {
+    "CPU_AND_GPU": {
+      "128": {
+        "cases": 7,
+        "questions": 8,
+        "max_abs_logit_delta": 0.030290603637695312,
+        "max_abs_prob_delta": 0.0026278913060760467,
+        "argmax_flips": 0,
+        "median_latency_ms": 7.20895899576135,
+        "max_abs_logit_delta_vs_compare": null
+      },
+      "256": {
+        "cases": 8,
+        "questions": 11,
+        "max_abs_logit_delta": 0.030290603637695312,
+        "max_abs_prob_delta": 0.0026278913060760467,
+        "argmax_flips": 0,
+        "median_latency_ms": 10.919791006017476,
+        "max_abs_logit_delta_vs_compare": null
+      },
+      "512": {
+        "cases": 8,
+        "questions": 11,
+        "max_abs_logit_delta": 0.03419685363769531,
+        "max_abs_prob_delta": 0.003301188342093142,
+        "argmax_flips": 0,
+        "median_latency_ms": 19.695958006195724,
+        "max_abs_logit_delta_vs_compare": 0.0
+      },
+      "1024": {
+        "cases": 8,
+        "questions": 11,
+        "max_abs_logit_delta": 0.03810310363769531,
+        "max_abs_prob_delta": 0.002443413364003777,
+        "argmax_flips": 0,
+        "median_latency_ms": 72.72441699751653,
+        "max_abs_logit_delta_vs_compare": null
+      },
+      "2048": {
+        "cases": 8,
+        "questions": 11,
+        "max_abs_logit_delta": 0.03810310363769531,
+        "max_abs_prob_delta": 0.002443413364003777,
+        "argmax_flips": 0,
+        "median_latency_ms": 150.98362500430085,
+        "max_abs_logit_delta_vs_compare": null
+      },
+      "3072": {
+        "cases": 8,
+        "questions": 11,
+        "max_abs_logit_delta": 0.03810310363769531,
+        "max_abs_prob_delta": 0.002443413364003777,
+        "argmax_flips": 0,
+        "median_latency_ms": 268.51341701694764,
+        "max_abs_logit_delta_vs_compare": null
+      }
+    }
+  }
+}

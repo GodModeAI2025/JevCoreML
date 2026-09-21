@@ -38,7 +38,7 @@ private func readmeRepoExamples(ticketText: String, modelsURL: URL, ticket: JevV
         print(id, answer.answer, answer.confidence, answer.actProbability)
     }
 
-    let kev = try SystemOne(modelURL: modelsURL.appending(path: "Kev06B-Q4-fp16.mlpackage"),
+    let kev = try SystemOne(modelURL: modelsURL.appending(path: "JevCoreML.mlpackage"),
                             tokenizerURL: modelsURL.appending(path: "tokenizer.json"))
     let response = try await kev.answer(JevRequest(state: ticket, questions: questions))
     print(response.answers.count)

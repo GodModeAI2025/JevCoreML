@@ -2,20 +2,21 @@
 # Lädt die fertigen Core-ML-Modelle aus dem GitHub-Release nach Models/ und prüft die Prüfsummen.
 #
 #   scripts/fetch-models.sh          laya, drei Checkpoints, rund 2,2 GB
-#   scripts/fetch-models.sh kev      kev, drei Längen, rund 3,3 GB
+#   scripts/fetch-models.sh kev      kev, ein Paket für alle Längen, rund 1,1 GB
 #   scripts/fetch-models.sh alle     beides
 #
 # JEV_REPO und JEV_RELEASE überschreiben Repo und Release, JEV_BASE_URL die ganze Quelle,
-# JEV_WANT die Liste der Pakete.
+# JEV_WANT die Liste der Pakete. Das ältere Release models-v1 hält kev noch als drei getrennte
+# Zuschnitte (Kev06B-Q4-fp16, Kev06B-L256-Q4-fp16, Kev06B-L1024-Q4K96-fp16).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 REPO="${JEV_REPO:-GodModeAI2025/JevCoreML}"
-RELEASE="${JEV_RELEASE:-models-v1}"
+RELEASE="${JEV_RELEASE:-models-v2}"
 BASE="${JEV_BASE_URL:-https://github.com/$REPO/releases/download/$RELEASE}"
 
 LAYA="Laya-EN-L512-K512-fp16 Laya-ML-L1024-K1024-fp16 Laya-TD-L1024-K1024-fp16"
-KEV="Kev06B-Q4-fp16 Kev06B-L256-Q4-fp16 Kev06B-L1024-Q4K96-fp16"
+KEV="JevCoreML"
 case "${1:-laya}" in
   laya) WANT="$LAYA" ;;
   kev) WANT="$KEV" ;;

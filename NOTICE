@@ -26,7 +26,10 @@ Was an den Modellen geändert wurde
   Die Gewichte sind nicht nachtrainiert. Geändert ist die Form, in der sie gerechnet werden:
   - Umwandlung nach Core ML (ML Program), Rechengenauigkeit fp16, Normalisierungen in fp32.
   - kev: LoRA-Adapter in die Gewichte eingerechnet; mehrere Fragen je Durchlauf mit
-    block-kausaler Maske im Graphen.
+    block-kausaler Maske im Graphen; sechs aufgezählte Eingabelängen in einem Paket.
+    Dieses Paket heißt hier JevCoreML.mlpackage. Der Name ist der des Projekts; die Gewichte
+    darin sind kev-0.6b von Jared Palmer auf Qwen3-0.6B-Base, unverändert bis auf die
+    Rechenform. Das steht auch in den Metadaten des Pakets (jev.name, jev.based_on).
   - laya: Aufmerksamkeitsmaske mit endlichem Wert statt -inf und offener Diagonale, damit fp16
     kein NaN liefert; Rotary-Tabellen in fp32 vorgerechnet; mehrere Eingabelängen je Paket;
     Handlungskopf und Bewerter im selben Graphen.

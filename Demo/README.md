@@ -9,7 +9,7 @@ Checkpoint samt Begründung und die Handlungswahrscheinlichkeit.
 ## Starten
 
 ```bash
-scripts/fetch-models.sh          # einmal, im Wurzelordner des Repos
+scripts/fetch-models.sh alle     # einmal, im Wurzelordner des Repos: laya und kev, rund 3,3 GB
 open Demo/JevDemo.xcodeproj
 ```
 

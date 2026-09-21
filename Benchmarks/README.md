@@ -49,6 +49,9 @@ Rechenwerke im Vergleich, `laya-backends-EN.json`: GPU 6,3 ms, CPU 85,7 ms, Neur
 | mit `--buckets`, drei Längen | dieselben Antworten, Median 22,7 statt 70,3 ms | `eval-pool-dev.json`, `eval-single-L1024-dev.json`, `vergleich-pool.json` |
 | Banking77, 77 Kategorien, 3075 Fragen | 78,8 %, Median 70 ms | `bench-intent77-nativ.json` |
 | Core ML gegen PyTorch, Logits | fp16 auf der GPU max ∣Δp∣ 3,3e−03 | `coreml-parity-Kev06B-fp16.json` |
+| `JevCoreML.mlpackage`, sechs Längen, je Länge gegen PyTorch | 0 Argmax-Flips auf allen Längen, max ∣Δp∣ 2,4e−03 bis 3,3e−03; bei 512 Token auf der GPU Logits bitgleich mit `Kev06B-Q4-fp16` | `fanout-parity-JevCoreML.json` |
+| `JevCoreML.mlpackage`, Latenz je Länge, zwei Fragen und 45 Token, GPU | 128: 7,2 ms, 256: 10,9, 512: 19,7, 1024: 73, 2048: 151, 3072: 269 (Python über coremltools) | `fanout-parity-JevCoreML.json` |
+| Entwicklungssuite mit `JevCoreML.mlpackage` über HTTP, 1468 Fragen | dieselben 1468 Antworten wie der Pool, 80,79 %, Median 19 ms, p95 75 ms | `eval-jevcoreml-dev.json`, `vergleich-jevcoreml-pool.json` |
 
 ## Selbst messen
 

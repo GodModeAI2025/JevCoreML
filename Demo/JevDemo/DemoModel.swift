@@ -56,7 +56,7 @@ final class DemoModel {
     static func defaultModelsDirectory() -> URL? {
         let fm = FileManager.default
         func hasModels(_ url: URL) -> Bool {
-            (try? fm.contentsOfDirectory(atPath: url.path))?.contains { $0.hasPrefix("Laya-") || $0.hasPrefix("Kev06B") } ?? false
+            (try? fm.contentsOfDirectory(atPath: url.path))?.contains { $0.hasPrefix("Laya-") || $0.hasPrefix("Kev06B") || $0.hasPrefix("JevCoreML.ml") } ?? false
         }
         var candidates: [URL] = []
         if let saved = UserDefaults.standard.string(forKey: "modelsPath") {
@@ -151,12 +151,13 @@ final class DemoModel {
                 throw JevError.modelFile(String(format: "kev braucht beim Laden bis zu 14 GB temporär, frei sind %.1f GB", Double(free) / Double(1 << 30)))
             }
             status = "kev wird geladen …"
-            kev = try SystemOne(modelURL: directory.appendingPathComponent("Kev06B-Q4-fp16.mlpackage"),
+            kev = try SystemOne(modelURL: directory.appendingPathComponent("JevCoreML.mlpackage"),
                                 tokenizerURL: directory.appendingPathComponent("tokenizer.json"))
         }
         guard let kev else { throw JevError.modelFile("kev nicht geladen") }
         status = "Rechnet …"
-        // Ein Durchlauf fasst bis zu vier Fragen; mehr werden in Gruppen gestellt.
+        // Ein Durchlauf fasst so viele Fragen, wie das Paket zulässt (acht); mehr werden in
+        // Gruppen gestellt.
         let perPass = max(1, kev.runtime.maxQuestions)
         var rows: [AnswerRow] = []
         var tokens = 0
@@ -173,7 +174,7 @@ final class DemoModel {
             }
         }
         let elapsed = clock.now - started
-        return DemoResult(engine: "kev, Kev06B-Q4-fp16",
+        return DemoResult(engine: "kev, JevCoreML",
                           detail: "\(passes) Durchlauf/Durchläufe für \(questions.count) Fragen",
                           milliseconds: Self.milliseconds(elapsed), inputTokens: tokens, answers: rows)
     }

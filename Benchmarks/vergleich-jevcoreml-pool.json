@@ -1,0 +1,15 @@
+{
+  "questions": 1468,
+  "disagreements": 0,
+  "disagreement_rate": 0.0,
+  "probabilities_over_1pct_apart": 0,
+  "max_abs_delta": 0.009999999999999995,
+  "mean_abs_delta": 6.811989100817435e-06,
+  "aufloesung": 0.01,
+  "hinweis": "Wahrscheinlichkeiten sind serverseitig auf zwei Stellen gerundet; Deltas sind untere Schranken",
+  "both_right": 1186,
+  "only_jevcoreml_right": 0,
+  "only_pool_right": 0,
+  "neither_right": 282,
+  "examples": []
+}

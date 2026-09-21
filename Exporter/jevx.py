@@ -159,9 +159,6 @@ class MultiQuestionKev(nn.Module):
         self.lm = kev.lm
         self.head = kev.head
         self.L, self.Q, self.K = length, questions, options
-        idx = torch.arange(length)
-        self.register_buffer("causal", (idx[:, None] >= idx[None, :]).float(), persistent=False)
-        self.register_buffer("eye", torch.eye(length), persistent=False)
 
     def build_mask(self, segment_ids, dtype):
         """Entspricht `kev.model.branch_mask_batch` ohne Optionsisolation.
@@ -171,14 +168,21 @@ class MultiQuestionKev(nn.Module):
 
         Gerechnet wird mit 0/1 statt mit Wahrheitswerten: der Core-ML-Frontend übersetzt
         `__or__` auf Bool-Tensoren nicht.
+
+        Kausalität und Diagonale entstehen aus der tatsächlichen Länge der Eingabe, nicht aus
+        Puffern der Form [L,L]: so trägt derselbe Graph mehrere aufgezählte Längen, und bei
+        fester Länge faltet der Konverter die Vergleiche zu Konstanten.
         """
         seg = segment_ids[0].to(dtype)
+        idx = torch.arange(seg.shape[0], device=seg.device)
+        causal = torch.ge(idx[:, None], idx[None, :]).to(dtype)
+        eye = torch.eq(idx[:, None], idx[None, :]).to(dtype)
         key, query = seg[None, :], seg[:, None]
         same = torch.eq(key, query).to(dtype)
         is_state = torch.eq(key, torch.zeros((), dtype=dtype)).to(dtype)
         valid = torch.ge(key, torch.zeros((), dtype=dtype)).to(dtype)
-        visible = torch.clamp(same + is_state, max=1.0) * valid * self.causal.to(dtype)
-        allow = torch.clamp(visible + self.eye.to(dtype), max=1.0)
+        visible = torch.clamp(same + is_state, max=1.0) * valid * causal
+        allow = torch.clamp(visible + eye, max=1.0)
         return ((allow - 1.0) * (-MASK_NEG))[None, None]
 
     def forward(self, input_ids, position_ids, segment_ids, decide_index, option_indices):
@@ -196,6 +200,38 @@ class MultiQuestionKev(nn.Module):
         q = self.head.q(h_decide).unsqueeze(-1)                                        # [Q, dp, 1]
         k = self.head.k(h_opts)                                                        # [Q, K, dp]
         return torch.matmul(k, q).squeeze(-1) * self.head.scale                        # [Q, K]
+
+
+def q_token_id(packed_record):
+    """Die ID des <q>-Tokens: dort, wo im gepackten Golden-Lauf das erste Segment 1 beginnt."""
+    enc = packed_record["encoding"]
+    return enc["ids"][enc["segment_ids"].index(1)]
+
+
+def segments_from_ids(ids, q_id):
+    """0 für den Zustand, k ab dem k-ten <q>-Token. Ersatz für fehlende segment_ids in den
+    Einzelanfragen aus records.json; gegen packed.json geprüft."""
+    seg, k = [], 0
+    for t in ids:
+        if t == q_id:
+            k += 1
+        seg.append(k)
+    return seg
+
+
+def single_enc(record, q_id):
+    """Encoding einer Einzelanfrage aus records.json im Phase-2-Format."""
+    e = record["encoding"]
+    return {"ids": e["ids"], "pos": e["position_ids"], "seg": segments_from_ids(e["ids"], q_id),
+            "decide_idx": [e["decide_index"]], "opt_idx": [e["option_indices"]]}
+
+
+def packed_enc(record):
+    """Encoding eines gepackten Mehrfragenlaufs aus packed.json im Phase-2-Format."""
+    e = record["encoding"]
+    return {"ids": e["ids"], "pos": e["position_ids"], "seg": e["segment_ids"],
+            "decide_idx": [q["decide_index"] for q in record["questions"]],
+            "opt_idx": [q["option_indices"] for q in record["questions"]]}
 
 
 def segment_ids_of(enc, length):

@@ -23,13 +23,13 @@ struct Options {
     var json: URL?
     var label = ""
 
-    var modelURL: URL { model ?? models.appendingPathComponent("Kev06B-Q4-fp16.mlpackage") }
+    /// Vorgabe ist das Universalpaket: sechs Längen von 128 bis 3072, acht Fragen, 256 Optionen,
+    /// und die Laufzeit wählt je Anfrage die kürzeste passende Länge selbst.
+    var modelURL: URL { model ?? models.appendingPathComponent("JevCoreML.mlpackage") }
 
-    /// Die drei Buckets 256, 512 und 1024, soweit sie unter --models liegen.
-    ///
-    /// L=3072 gehört nicht dazu: jeder geladene kev-Export belegt zur Laufzeit rund 14 GB Platte
-    /// im Temp-Verzeichnis, und ein vierter Bucket für die seltenen Fälle mit mehr als 96 Optionen
-    /// ist das nicht wert. Wer ihn braucht, gibt ihn zusätzlich mit --model an.
+    /// Die drei Buckets aus getrennten Exporten 256, 512 und 1024, soweit
+    /// sie unter --models liegen. Seit dem Universalpaket nur noch für den Vergleich nötig: das
+    /// eine Paket deckt dieselben Längen ab und wählt sie selbst.
     static let bucketNames = ["Kev06B-L256-Q4-fp16", "Kev06B-Q4-fp16", "Kev06B-L1024-Q4K96-fp16"]
 
     var bucketURLs: [URL] {
@@ -52,10 +52,12 @@ func usage() -> Never {
 
       --engine kev|laya    welches Modell rechnet (Vorgabe kev)
       --models <pfad>      Verzeichnis mit Modellen und Tokenizern (Vorgabe Models)
-      --model <pfad>       ein bestimmtes .mlpackage statt der Vorgabe; bei kev mehrfach angegeben
-                           entsteht ein Pool, der je Anfrage den kleinsten passenden Export nimmt
-      --buckets            kev-Pool aus Kev06B-L256-Q4, Kev06B-Q4 und Kev06B-L1024-Q4K96 unter
-                           --models; weitere Exporte kommen mit --model dazu
+      --model <pfad>       ein bestimmtes .mlpackage statt der Vorgabe JevCoreML;
+                           bei kev mehrfach angegeben entsteht ein Pool, der je Anfrage den
+                           kleinsten passenden Export nimmt
+      --buckets            kev-Pool aus den getrennten Exporten Kev06B-L256-Q4, Kev06B-Q4 und
+                           Kev06B-L1024-Q4K96 unter --models, für den Vergleich mit dem
+                           Universalpaket; weitere Exporte kommen mit --model dazu
       --tokenizer <pfad>   ein bestimmtes tokenizer.json statt der Vorgabe
       --request <pfad>     SystemOne-Anfrage als JSON
       --units cpu|gpu|all|ane
@@ -63,20 +65,23 @@ func usage() -> Never {
       --demo               eingebautes Beispiel: Skill-Routing
       --serve              startet POST /v1/systemone auf 127.0.0.1
       --port <n>           Port für --serve (Vorgabe 8008)
+      --lengths <liste>    nur diese Eingabelängen des Pakets benutzen, etwa 128,256,512; die
+                           größte ist immer dabei. Jede Länge kostet eine Instanz und einen
+                           Warmlauf; bei kev kompiliert die GPU jede Länge einmal je Rechner
 
     nur mit --engine laya:
       --checkpoint <name>  english | multilingual | typed-decisions, sonst entscheidet die Schrift;
                            mit --model der Checkpoint des Pakets, sonst aus dem Dateinamen
       --lang <code>        Sprache vorgeben statt sie zu erkennen
                            (mit --serve: Vorgabe für Anfragen ohne task, lang oder Checkpoint)
-      --lengths <liste>    nur diese Eingabelängen benutzen, etwa 128,512; die größte ist immer
-                           dabei, jede weitere kostet 25 bis 50 MB Speicher
       --json <pfad>        Messwerte und Antworten als JSON schreiben
       --label <text>       Beschriftung für --json
 
-    Die Vorgabe für --units ist all bei kev und gpu bei laya. Für laya ist das kein Geschmack:
-    die Neural Engine rechnete die festen Exporte falsch und ist beim jetzigen Paket 40-mal
-    langsamer als die GPU, siehe docs/laya-port.md.
+    Die Vorgabe für --units ist gpu, bei kev wie bei laya. Das ist kein Geschmack: bei laya
+    rechnete die Neural Engine die festen Exporte falsch und ist beim jetzigen Paket 40-mal
+    langsamer als die GPU; bei kev legte der Planer von Core ML das Paket mit sechs Längen unter
+    all auf die CPU, 394 ms statt 8 für eine kurze Anfrage. Ein ausdrückliches all überlässt
+    die Wahl trotzdem dem Planer, ane erzwingt die Neural Engine.
     """)
     exit(2)
 }
@@ -305,7 +310,13 @@ func printProbabilities(_ entries: [(name: String, probability: Double)]) {
 
 @MainActor func runKev() async throws {
     let started = Date()
-    let kevConfiguration = JevRuntime.Configuration(computeUnits: units.value)
+    // --lengths schränkt die Längen des Pakets ein, etwa 128,256,512 für einen Dienst, der nur
+    // kurze Anfragen sieht: weniger Instanzen, kürzerer Warmlauf. Die größte bleibt immer dabei.
+    // Ein ausdrückliches --units all überlässt die Wahl dem Planer von Core ML; ohne Angabe
+    // rechnet kev auf der GPU, siehe JevRuntime.Configuration.computeUnits.
+    let kevConfiguration = JevRuntime.Configuration(computeUnits: units.value,
+                                                    sequenceLengths: options.lengths,
+                                                    allowNeuralEngine: options.computeUnits == "all")
     let engine: any SystemOneEngine
     if options.buckets || options.modelList.count > 1 {
         // Mit --buckets kommen ausdrücklich angegebene Exporte dazu, statt still wegzufallen.
@@ -329,7 +340,10 @@ func printProbabilities(_ entries: [(name: String, probability: Double)]) {
     let loadedMembers = await engine.members()
     print(String(format: "%d Export(e) geladen in %.2f s", loadedMembers.count, Date().timeIntervalSince(started)))
     for member in loadedMembers {
-        print("  \(member.file)  L=\(member.sequenceLength) Q=\(member.maxQuestions) K=\(member.maxOptions)")
+        let lengths = member.sequenceLengths.count > 1
+            ? member.sequenceLengths.map(String.init).joined(separator: "/")
+            : String(member.sequenceLength)
+        print("  \(member.file)  L=\(lengths) Q=\(member.maxQuestions) K=\(member.maxOptions)")
     }
     let warmUpMilliseconds = try await engine.warmUp()
     print(String(format: "Warmlauf %.0f ms", warmUpMilliseconds))

@@ -182,7 +182,7 @@ enum Fixtures {
         if let path = ProcessInfo.processInfo.environment["JEV_MODEL"] {
             return URL(fileURLWithPath: path)
         }
-        for name in ["Kev06B-Q4-fp16.mlpackage", "Kev06B-fp16.mlpackage",
+        for name in ["JevCoreML.mlpackage", "Kev06B-Q4-fp16.mlpackage", "Kev06B-fp16.mlpackage",
                      "Kev06B-Q4-fp32.mlpackage", "Kev06B-fp32.mlpackage"] {
             let url = models.appendingPathComponent(name)
             if FileManager.default.fileExists(atPath: url.path) { return url }

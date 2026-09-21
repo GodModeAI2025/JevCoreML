@@ -273,9 +273,13 @@ public final class JevServer: @unchecked Sendable {
                 "max_questions": largest.maxQuestions,
                 "max_options": largest.maxOptions,
                 "members": members.map {
-                    ["file": $0.file, "contract": $0.contract.rawValue,
-                     "sequence_length": $0.sequenceLength, "max_questions": $0.maxQuestions,
-                     "max_options": $0.maxOptions] as [String: Any]
+                    var entry: [String: Any] = [
+                        "file": $0.file, "contract": $0.contract.rawValue,
+                        "sequence_length": $0.sequenceLength, "max_questions": $0.maxQuestions,
+                        "max_options": $0.maxOptions]
+                    // Ein Universalpaket nimmt mehrere Längen an; die Laufzeit wählt die kürzeste.
+                    if $0.sequenceLengths.count > 1 { entry["sequence_lengths"] = $0.sequenceLengths }
+                    return entry
                 },
             ])
         case ("GET", "/healthz"):
