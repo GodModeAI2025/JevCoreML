@@ -1,0 +1,34 @@
+{
+  "questions": 1468,
+  "disagreements": 2,
+  "disagreement_rate": 0.0013623978201634877,
+  "probabilities_over_1pct_apart": 116,
+  "max_abs_delta": 0.06,
+  "mean_abs_delta": 0.0010490463215258859,
+  "both_right": 1186,
+  "only_nativ_right": 0,
+  "only_referenz_right": 2,
+  "neither_right": 280,
+  "examples": [
+    {
+      "index": 1436,
+      "qid": "decision",
+      "source": "compositional",
+      "type": "choice",
+      "nativ": "accept",
+      "referenz": "reject",
+      "label": "reject",
+      "max_delta": 0.0
+    },
+    {
+      "index": 1438,
+      "qid": "decision",
+      "source": "compositional",
+      "type": "choice",
+      "nativ": "accept",
+      "referenz": "reject",
+      "label": "reject",
+      "max_delta": 0.0
+    }
+  ]
+}

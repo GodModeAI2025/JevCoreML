@@ -1,0 +1,192 @@
+{
+  "laya": "laya_baseline.py: PyTorch, CPU, Router(preload=True)",
+  "port": "jev --engine laya, Core ML fp16, cpuAndGPU, Release-Build, 25 Läufe",
+  "runs": [
+    {
+      "label": "1 Frage, englisch",
+      "fragen": 1,
+      "routing_laya": "english",
+      "routing_port": "english",
+      "laya_median_ms": 112.9,
+      "port_median_ms": 9.02,
+      "port_min_ms": 8.14,
+      "faktor_median": 12.52,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000115,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "4 Fragen, englisch",
+      "fragen": 4,
+      "routing_laya": "english",
+      "routing_port": "english",
+      "laya_median_ms": 314.84,
+      "port_median_ms": 33.65,
+      "port_min_ms": 32.36,
+      "faktor_median": 9.36,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000115,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 9.2e-05,
+          "d_wert": 0.00011,
+          "d_act": 0.0
+        },
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000175,
+          "d_wert": 0.000175,
+          "d_act": 0.0
+        },
+        {
+          "frage": "refund_requested",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000297,
+          "d_wert": 0.000297,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "10 Fragen, englisch",
+      "fragen": 10,
+      "routing_laya": "english",
+      "routing_port": "english",
+      "laya_median_ms": 709.24,
+      "port_median_ms": 83.36,
+      "port_min_ms": 82.51,
+      "faktor_median": 8.51,
+      "antworten": [
+        {
+          "frage": "department_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000115,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 9.2e-05,
+          "d_wert": 0.00011,
+          "d_act": 0.0
+        },
+        {
+          "frage": "churn_risk_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000175,
+          "d_wert": 0.000175,
+          "d_act": 0.0
+        },
+        {
+          "frage": "refund_requested_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000297,
+          "d_wert": 0.000297,
+          "d_act": 0.0
+        },
+        {
+          "frage": "department_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000115,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 9.2e-05,
+          "d_wert": 0.00011,
+          "d_act": 0.0
+        },
+        {
+          "frage": "churn_risk_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000175,
+          "d_wert": 0.000175,
+          "d_act": 0.0
+        },
+        {
+          "frage": "refund_requested_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000297,
+          "d_wert": 0.000297,
+          "d_act": 0.0
+        },
+        {
+          "frage": "department_2",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000115,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency_2",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 9.2e-05,
+          "d_wert": 0.00011,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "1 Frage, deutsch",
+      "fragen": 1,
+      "routing_laya": "multilingual",
+      "routing_port": "multilingual",
+      "laya_median_ms": 37.42,
+      "port_median_ms": 6.02,
+      "port_min_ms": 4.29,
+      "faktor_median": 6.22,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.000546,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "1 Frage, hindi",
+      "fragen": 1,
+      "routing_laya": "multilingual",
+      "routing_port": "multilingual",
+      "laya_median_ms": 43.86,
+      "port_median_ms": 6.29,
+      "port_min_ms": 4.61,
+      "faktor_median": 6.97,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.001008,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    }
+  ],
+  "gleiche_entscheidungen": "17/17",
+  "gleiches_routing": true,
+  "groesste_abstaende": {
+    "konfidenz": 0.001008,
+    "wert": 0.000297,
+    "act": 0.0
+  }
+}

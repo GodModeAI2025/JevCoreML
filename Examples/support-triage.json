@@ -1,0 +1,28 @@
+{
+  "state": {
+    "kunde": { "plan": "Enterprise", "seit": "2021" },
+    "ticket": "Ihr Produkt ist voellig unbrauchbar, ich will mein Geld zurueck und zwar sofort. Die App stuerzt seit dem Update beim Start ab.",
+    "historie": ["zwei identische Belastungen im Maerz", "Rueckerstattung damals abgelehnt"]
+  },
+  "questions": {
+    "is_bug": {
+      "type": "noul",
+      "instructions": "Beschreibt der Zustand einen technischen Fehler?"
+    },
+    "team": {
+      "type": "choice",
+      "instructions": "An welches Team geht das Ticket?",
+      "criteria": {
+        "billing": "Rechnungen, Zahlungen, Rueckerstattungen",
+        "logistics": "Versand und Lieferung",
+        "technical": "Fehler in Produkt oder App",
+        "none": "keines dieser Teams"
+      }
+    },
+    "eskalation": {
+      "type": "score",
+      "instructions": "Wie stark ist die Eskalation?",
+      "criteria": ["neutral", "leicht gereizt", "veraergert", "stark veraergert", "eskaliert"]
+    }
+  }
+}

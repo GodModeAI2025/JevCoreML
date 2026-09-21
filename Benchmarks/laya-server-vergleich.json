@@ -1,0 +1,334 @@
+{
+  "laya": "laya.Router(preload=True, device='cpu').predict, im Prozess",
+  "port": "jev --engine laya --serve (Release), POST /v1/systemone, gemessen beim Client",
+  "wiederholungen": 25,
+  "runs": [
+    {
+      "label": "1 Frage, englisch",
+      "hinweise": {},
+      "checkpoint": "english",
+      "input_tokens": 96,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ],
+      "laya_median_ms": 114.91,
+      "port_http_median_ms": 9.76,
+      "faktor": 11.77
+    },
+    {
+      "label": "4 Fragen, englisch",
+      "hinweise": {},
+      "checkpoint": "english",
+      "input_tokens": 348,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0001,
+          "d_act": 0.0
+        },
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0002,
+          "d_wert": 0.0002,
+          "d_act": 0.0
+        },
+        {
+          "frage": "refund_requested",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0003,
+          "d_wert": 0.0003,
+          "d_act": 0.0
+        }
+      ],
+      "laya_median_ms": 317.39,
+      "port_http_median_ms": 51.19,
+      "faktor": 6.2
+    },
+    {
+      "label": "10 Fragen, englisch",
+      "hinweise": {},
+      "checkpoint": "english",
+      "input_tokens": 875,
+      "antworten": [
+        {
+          "frage": "department_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0001,
+          "d_act": 0.0
+        },
+        {
+          "frage": "churn_risk_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0002,
+          "d_wert": 0.0002,
+          "d_act": 0.0
+        },
+        {
+          "frage": "refund_requested_0",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0003,
+          "d_wert": 0.0003,
+          "d_act": 0.0
+        },
+        {
+          "frage": "department_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0001,
+          "d_act": 0.0
+        },
+        {
+          "frage": "churn_risk_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0002,
+          "d_wert": 0.0002,
+          "d_act": 0.0
+        },
+        {
+          "frage": "refund_requested_1",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0003,
+          "d_wert": 0.0003,
+          "d_act": 0.0
+        },
+        {
+          "frage": "department_2",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        },
+        {
+          "frage": "urgency_2",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0001,
+          "d_act": 0.0
+        }
+      ],
+      "laya_median_ms": 710.58,
+      "port_http_median_ms": 123.85,
+      "faktor": 5.74
+    },
+    {
+      "label": "1 Frage, deutsch",
+      "hinweise": {},
+      "checkpoint": "multilingual",
+      "input_tokens": 62,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0005,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ],
+      "laya_median_ms": 38.48,
+      "port_http_median_ms": 5.42,
+      "faktor": 7.1
+    },
+    {
+      "label": "1 Frage, hindi",
+      "hinweise": {},
+      "checkpoint": "multilingual",
+      "input_tokens": 65,
+      "antworten": [
+        {
+          "frage": "department",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.001,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ],
+      "laya_median_ms": 44.9,
+      "port_http_median_ms": 7.7,
+      "faktor": 5.83
+    },
+    {
+      "label": "Legende aus Zahlen und Objekten",
+      "hinweise": {},
+      "checkpoint": "english",
+      "input_tokens": 61,
+      "antworten": [
+        {
+          "frage": "stars",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0001,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "model=multilingual auf Englisch",
+      "hinweise": {
+        "model": "multilingual"
+      },
+      "checkpoint": "multilingual",
+      "input_tokens": 51,
+      "antworten": [
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "task=typed_decisions",
+      "hinweise": {
+        "task": "typed_decisions"
+      },
+      "checkpoint": "typed-decisions",
+      "input_tokens": 51,
+      "antworten": [
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0003,
+          "d_wert": 0.0003,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "lang=de auf Englisch",
+      "hinweise": {
+        "lang": "de"
+      },
+      "checkpoint": "multilingual",
+      "input_tokens": 51,
+      "antworten": [
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "lang=en auf Deutsch",
+      "hinweise": {
+        "lang": "en"
+      },
+      "checkpoint": "english",
+      "input_tokens": 59,
+      "antworten": [
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0003,
+          "d_wert": 0.0003,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "ohne Buchstaben",
+      "hinweise": {},
+      "checkpoint": "english",
+      "input_tokens": 44,
+      "antworten": [
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0001,
+          "d_wert": 0.0001,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "gemischte Schrift",
+      "hinweise": {},
+      "checkpoint": "multilingual",
+      "input_tokens": 55,
+      "antworten": [
+        {
+          "frage": "churn_risk",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "150 Optionen",
+      "hinweise": {},
+      "checkpoint": "english",
+      "input_tokens": 482,
+      "antworten": [
+        {
+          "frage": "team",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    },
+    {
+      "label": "300 Optionen, typed-decisions",
+      "hinweise": {
+        "task": "typed_decisions"
+      },
+      "checkpoint": "typed-decisions",
+      "input_tokens": 932,
+      "antworten": [
+        {
+          "frage": "team",
+          "gleiche_entscheidung": true,
+          "d_konfidenz": 0.0,
+          "d_wert": 0.0,
+          "d_act": 0.0
+        }
+      ]
+    }
+  ],
+  "gleiche_form": true,
+  "gleiche_entscheidungen": "26/26",
+  "groesste_abstaende": {
+    "konfidenz": 0.001,
+    "wert": 0.0003,
+    "act": 0.0,
+    "wahrscheinlichkeit": 0.0021
+  }
+}

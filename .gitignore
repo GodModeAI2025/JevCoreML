@@ -1,0 +1,23 @@
+# Modelle kommen aus dem GitHub-Release, nicht ins Repo: GitHub nimmt keine Dateien über 100 MB.
+# scripts/fetch-models.sh lädt sie, scripts/package-models.sh packt sie für ein Release.
+Models/*
+!Models/README.md
+dist/
+.downloads/
+
+# Swift und Xcode
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# Python
+Exporter/.venv*/
+__pycache__/
+*.pyc
+
+# kev-Quellen, die scripts/reproduce.sh klont
+vendor/
+
+.DS_Store

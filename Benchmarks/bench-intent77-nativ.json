@@ -1,0 +1,95 @@
+{
+  "label": "nativ L1024 fp16",
+  "task": "intent77",
+  "base": "http://127.0.0.1:8010",
+  "described_criteria": true,
+  "categories": 77,
+  "n": 3075,
+  "failed": 5,
+  "accuracy": 0.7882926829268293,
+  "latency_ms": {
+    "p50": 69.58241700340295,
+    "p95": 75.10216599621344,
+    "mean": 70.11666811575834
+  },
+  "input_tokens_mean": 975.5043902439024,
+  "gating": [
+    {
+      "min_conf": 0.0,
+      "coverage": 1.0,
+      "accuracy": 0.7882926829268293
+    },
+    {
+      "min_conf": 0.5,
+      "coverage": 0.92,
+      "accuracy": 0.8289148108872393
+    },
+    {
+      "min_conf": 0.7,
+      "coverage": 0.8224390243902439,
+      "accuracy": 0.8750494266508502
+    },
+    {
+      "min_conf": 0.8,
+      "coverage": 0.7652032520325204,
+      "accuracy": 0.8954526136846579
+    },
+    {
+      "min_conf": 0.9,
+      "coverage": 0.6861788617886179,
+      "accuracy": 0.9227488151658768
+    },
+    {
+      "min_conf": 0.95,
+      "coverage": 0.6071544715447155,
+      "accuracy": 0.934654525977504
+    }
+  ],
+  "top_confusions": [
+    [
+      "card_delivery_estimate -> card_arrival",
+      19
+    ],
+    [
+      "top_up_by_bank_transfer_charge -> transfer_fee_charged",
+      15
+    ],
+    [
+      "why_verify_identity -> verify_my_identity",
+      13
+    ],
+    [
+      "transfer_timing -> pending_transfer",
+      11
+    ],
+    [
+      "card_acceptance -> country_support",
+      10
+    ],
+    [
+      "card_swallowed -> declined_cash_withdrawal",
+      9
+    ],
+    [
+      "apple_pay_or_google_pay -> top_up_failed",
+      9
+    ],
+    [
+      "transfer_not_received_by_recipient -> pending_transfer",
+      9
+    ],
+    [
+      "supported_cards_and_currencies -> fiat_currency_support",
+      8
+    ],
+    [
+      "top_up_by_bank_transfer_charge -> transfer_into_account",
+      8
+    ]
+  ],
+  "failures": [
+    "{\"detail\":\"Sequenz hat 1041 Token, das Modell wurde für 1024 exportiert\"}",
+    "{\"detail\":\"Sequenz hat 1026 Token, das Modell wurde für 1024 exportiert\"}",
+    "{\"detail\":\"Sequenz hat 1034 Token, das Modell wurde für 1024 exportiert\"}"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "model": "../Models/Laya-TD-L1024-K1024-fp16.mlpackage",
+  "checkpoint": "typed-decisions",
+  "sequence_length": 1024,
+  "sequence_lengths": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "max_options": 1024,
+  "records": 15,
+  "backends": {
+    "GPU": {
+      "max_dlogit": 0.010418891906738281,
+      "max_dp": 0.0015844121636946484,
+      "max_dwert": 0.013999999999995794,
+      "max_dconfidence": 0.0014000000000000679,
+      "max_dact_logit": 2.64306640625,
+      "max_dact_probability": 0.0,
+      "records_per_length": {
+        "128": 13,
+        "1024": 2
+      },
+      "gekippte_entscheidungen": 0,
+      "details": []
+    }
+  }
+}

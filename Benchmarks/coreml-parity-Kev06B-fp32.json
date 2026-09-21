@@ -1,0 +1,24 @@
+{
+  "model": "Models/Kev06B-fp32.mlpackage",
+  "records": 6,
+  "units": {
+    "CPU_ONLY": {
+      "max_abs_logit_delta": 1.2874603271484375e-05,
+      "max_abs_prob_delta": 2.209083792364952e-06,
+      "argmax_flips": 0,
+      "median_latency_ms": 564.813451327306
+    },
+    "CPU_AND_GPU": {
+      "max_abs_logit_delta": 2.9087066650390625e-05,
+      "max_abs_prob_delta": 3.4560680548523237e-06,
+      "argmax_flips": 0,
+      "median_latency_ms": 168.88550000536875
+    },
+    "ALL": {
+      "max_abs_logit_delta": 2.9087066650390625e-05,
+      "max_abs_prob_delta": 3.4560680548523237e-06,
+      "argmax_flips": 0,
+      "median_latency_ms": 165.25924299882413
+    }
+  }
+}

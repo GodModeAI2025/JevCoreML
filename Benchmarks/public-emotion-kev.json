@@ -1,0 +1,12 @@
+{
+  "task": "emotion",
+  "n": 1000,
+  "failed": 0,
+  "fair": "held-out fuer beide Seiten",
+  "accuracy": 0.497,
+  "laya": 0.573,
+  "laya_routed": 0.595,
+  "jev": 0.48,
+  "median_latency_ms": 81.15904149599373,
+  "median_input_tokens": 49.0
+}

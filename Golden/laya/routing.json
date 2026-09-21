@@ -1,0 +1,1423 @@
+{
+  "detections": [
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "text": "The customer received two identical charges for the same order.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "en",
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "en",
+      "model": "english"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "text": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "de",
+      "is_english": false,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "de",
+      "model": "multilingual"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "text": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "de",
+      "is_english": false,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "de",
+      "model": "multilingual"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "text": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "fr",
+      "is_english": false,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "fr",
+      "model": "multilingual"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "text": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "es",
+      "is_english": false,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "es",
+      "model": "multilingual"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "text": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "it",
+      "is_english": false,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "it",
+      "model": "multilingual"
+    },
+    {
+      "state": "De klant heeft twee identieke afschrijvingen ontvangen voor dezelfde bestelling.",
+      "text": "De klant heeft twee identieke afschrijvingen ontvangen voor dezelfde bestelling.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "O cliente recebeu duas cobranças idênticas para o mesmo pedido.",
+      "text": "O cliente recebeu duas cobranças idênticas para o mesmo pedido.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "text": "顧客は同じ注文で同一の請求を二度受けました。",
+      "script": "han",
+      "script_profile": {
+        "han": 0.5714285714285714,
+        "kana": 0.42857142857142855
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "han",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "text": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "script": "hangul",
+      "script_profile": {
+        "hangul": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "hangul",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "text": "客户为同一订单收到了两笔相同的费用。",
+      "script": "han",
+      "script_profile": {
+        "han": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "han",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "text": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "script": "arabic",
+      "script_profile": {
+        "arabic": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "arabic",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "ग्राहक को एक ही ऑर्डर के लिए दो समान शुल्क मिले।",
+      "text": "ग्राहक को एक ही ऑर्डर के लिए दो समान शुल्क मिले।",
+      "script": "devanagari",
+      "script_profile": {
+        "devanagari": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "devanagari",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "Ο πελάτης χρεώθηκε δύο φορές για την ίδια παραγγελία.",
+      "text": "Ο πελάτης χρεώθηκε δύο φορές για την ίδια παραγγελία.",
+      "script": "greek",
+      "script_profile": {
+        "greek": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "greek",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "Клиент получил два одинаковых списания за один заказ.",
+      "text": "Клиент получил два одинаковых списания за один заказ.",
+      "script": "cyrillic",
+      "script_profile": {
+        "cyrillic": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "cyrillic",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "ลูกค้าได้รับการเรียกเก็บเงินสองครั้งสำหรับคำสั่งซื้อเดียวกัน",
+      "text": "ลูกค้าได้รับการเรียกเก็บเงินสองครั้งสำหรับคำสั่งซื้อเดียวกัน",
+      "script": "thai",
+      "script_profile": {
+        "thai": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "thai",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "",
+      "text": "",
+      "script": "unknown",
+      "script_profile": {},
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "unknown",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "   ",
+      "text": "   ",
+      "script": "unknown",
+      "script_profile": {},
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "unknown",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "12345 67890 !!! ??? ---",
+      "text": "12345 67890 !!! ??? ---",
+      "script": "unknown",
+      "script_profile": {},
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "unknown",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "2024-05-01T12:00:00Z",
+      "text": "2024-05-01T12:00:00Z",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "ok",
+      "text": "ok",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "the and is are",
+      "text": "the and is are",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "en",
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "en",
+      "model": "english"
+    },
+    {
+      "state": "der die das und",
+      "text": "der die das und",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "de",
+      "is_english": false,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "de",
+      "model": "multilingual"
+    },
+    {
+      "state": "Mixed: der Kunde and the customer sind beide betroffen",
+      "text": "Mixed: der Kunde and the customer sind beide betroffen",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "en",
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "en",
+      "model": "english"
+    },
+    {
+      "state": "Réservation confirmée",
+      "text": "Réservation confirmée",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": "naïve café résumé",
+      "text": "naïve café résumé",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": {
+        "kunde": {
+          "plan": "Enterprise",
+          "seit": "2021"
+        },
+        "vorfall": [
+          "Doppelbuchung",
+          "zwei identische Belastungen wurden abgebucht"
+        ]
+      },
+      "text": "Enterprise 2021 Doppelbuchung zwei identische Belastungen wurden abgebucht",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": {
+        "customer": {
+          "plan": "Enterprise"
+        },
+        "incident": [
+          "duplicate charge",
+          "two identical debits"
+        ]
+      },
+      "text": "Enterprise duplicate charge two identical debits",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": null,
+      "is_english": true,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": null,
+      "model": "english"
+    },
+    {
+      "state": {
+        "ticket": "客户为同一订单收到了两笔相同的费用",
+        "id": 4711
+      },
+      "text": "客户为同一订单收到了两笔相同的费用",
+      "script": "han",
+      "script_profile": {
+        "han": 1.0
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "han",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": [
+        {
+          "role": "user",
+          "content": "Bitte storniere die doppelte Buchung."
+        },
+        {
+          "role": "agent",
+          "content": "Ich sehe mir das an."
+        }
+      ],
+      "text": "user Bitte storniere die doppelte Buchung. agent Ich sehe mir das an.",
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "de",
+      "is_english": false,
+      "non_latin_fraction": 0.0,
+      "detect_script": "latin",
+      "guess_latin_language": "de",
+      "model": "multilingual"
+    },
+    {
+      "state": "Order 4411: заказ пришёл дважды, refund please",
+      "text": "Order 4411: заказ пришёл дважды, refund please",
+      "script": "cyrillic",
+      "script_profile": {
+        "latin": 0.5,
+        "cyrillic": 0.5
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 0.5,
+      "detect_script": "cyrillic",
+      "guess_latin_language": "en",
+      "model": "multilingual"
+    },
+    {
+      "state": "abc абв",
+      "text": "abc абв",
+      "script": "cyrillic",
+      "script_profile": {
+        "latin": 0.5,
+        "cyrillic": 0.5
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 0.5,
+      "detect_script": "cyrillic",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "ab αβ вг",
+      "text": "ab αβ вг",
+      "script": "greek",
+      "script_profile": {
+        "latin": 0.3333333333333333,
+        "greek": 0.3333333333333333,
+        "cyrillic": 0.3333333333333333
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 0.6667,
+      "detect_script": "greek",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "вг αβ ab",
+      "text": "вг αβ ab",
+      "script": "cyrillic",
+      "script_profile": {
+        "latin": 0.3333333333333333,
+        "cyrillic": 0.3333333333333333,
+        "greek": 0.3333333333333333
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 0.6667,
+      "detect_script": "cyrillic",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "漢字かな",
+      "text": "漢字かな",
+      "script": "han",
+      "script_profile": {
+        "han": 0.5,
+        "kana": 0.5
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "han",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "かな漢字",
+      "text": "かな漢字",
+      "script": "kana",
+      "script_profile": {
+        "kana": 0.5,
+        "han": 0.5
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "kana",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "한글漢字",
+      "text": "한글漢字",
+      "script": "hangul",
+      "script_profile": {
+        "hangul": 0.5,
+        "han": 0.5
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 1.0,
+      "detect_script": "hangul",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    },
+    {
+      "state": "ab 漢字 한글",
+      "text": "ab 漢字 한글",
+      "script": "han",
+      "script_profile": {
+        "latin": 0.3333333333333333,
+        "han": 0.3333333333333333,
+        "hangul": 0.3333333333333333
+      },
+      "language": null,
+      "is_english": false,
+      "non_latin_fraction": 0.6667,
+      "detect_script": "han",
+      "guess_latin_language": null,
+      "model": "multilingual"
+    }
+  ],
+  "routes": [
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "english",
+      "model_auto_task": "english"
+    },
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "english",
+      "model_auto_task": "english"
+    },
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "english",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "english",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "english",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "english",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "The customer received two identical charges for the same order.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "english",
+      "model_auto_task": "english"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die App beim Start abstuerzt.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Der Kunde meldet, dass die Anwendung beim Start abstürzt und nicht mehr reagiert.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Le client a reçu deux prélèvements identiques pour la même commande.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "El cliente recibió dos cargos idénticos por el mismo pedido.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "Il cliente ha ricevuto due addebiti identici per lo stesso ordine.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "顧客は同じ注文で同一の請求を二度受けました。",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "고객이 동일한 주문에 대해 두 번 청구되었습니다.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "客户为同一订单收到了两笔相同的费用。",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "question_ids": [],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "question_ids": [
+        "route"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human",
+        "urgency"
+      ],
+      "workflow": "customer_service",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "question_ids": [
+        "action",
+        "needs_review",
+        "outcome",
+        "risk",
+        "urgency"
+      ],
+      "workflow": "agent_trace_observability",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "question_ids": [
+        "discrepancy_severity",
+        "disposition",
+        "duplicate",
+        "matches_order",
+        "urgency"
+      ],
+      "workflow": "invoice_processing",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "question_ids": [
+        "credential_compromise",
+        "disposition",
+        "severity",
+        "true_positive",
+        "urgency"
+      ],
+      "workflow": "security_incidents",
+      "model": "multilingual",
+      "model_auto_task": "typed-decisions"
+    },
+    {
+      "state": "العميل تلقى رسمين متطابقين لنفس الطلب.",
+      "question_ids": [
+        "action",
+        "category",
+        "churn_risk",
+        "needs_human"
+      ],
+      "workflow": null,
+      "model": "multilingual",
+      "model_auto_task": "multilingual"
+    }
+  ],
+  "overrides": [
+    {
+      "kwargs": {
+        "model": "multi"
+      },
+      "model": "multilingual"
+    },
+    {
+      "kwargs": {
+        "model": "typed"
+      },
+      "model": "typed-decisions"
+    },
+    {
+      "kwargs": {
+        "model": "en"
+      },
+      "model": "english"
+    },
+    {
+      "kwargs": {
+        "task": "typed_decisions"
+      },
+      "model": "typed-decisions"
+    },
+    {
+      "kwargs": {
+        "task": "multilingual"
+      },
+      "model": "multilingual"
+    },
+    {
+      "kwargs": {
+        "lang": "de"
+      },
+      "model": "multilingual"
+    },
+    {
+      "kwargs": {
+        "lang": "en-GB"
+      },
+      "model": "english"
+    },
+    {
+      "kwargs": {
+        "lang": "eng"
+      },
+      "model": "english"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "device": "cpu",
+  "load_seconds": 12.935126066207886,
+  "runs": [
+    {
+      "label": "1 Frage, englisch",
+      "questions": 1,
+      "routed_to": "english",
+      "median_ms": 112.89754150493536,
+      "min_ms": 112.57295901305042,
+      "p95_ms": 113.93008299637586,
+      "per_question_ms": 112.89754150493536,
+      "answers": {
+        "department": {
+          "type": "choice",
+          "choice": "billing",
+          "confidence": 0.864,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      }
+    },
+    {
+      "label": "4 Fragen, englisch",
+      "questions": 4,
+      "routed_to": "english",
+      "median_ms": 314.83920848404523,
+      "min_ms": 314.07300001592375,
+      "p95_ms": 320.2128749981057,
+      "per_question_ms": 78.70980212101131,
+      "answers": {
+        "department": {
+          "type": "choice",
+          "choice": "billing",
+          "confidence": 0.864,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "score": 1.44,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline or blocking issue"
+          },
+          "confidence": 0.1425,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "churn_risk": {
+          "type": "noul",
+          "noul": 0.8248,
+          "confidence": 0.8248,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "refund_requested": {
+          "type": "noul",
+          "noul": 0.843,
+          "confidence": 0.843,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      }
+    },
+    {
+      "label": "10 Fragen, englisch",
+      "questions": 10,
+      "routed_to": "english",
+      "median_ms": 709.2356874927646,
+      "min_ms": 708.0263340030797,
+      "p95_ms": 714.0911250025965,
+      "per_question_ms": 70.92356874927646,
+      "answers": {
+        "department_0": {
+          "type": "choice",
+          "choice": "billing",
+          "confidence": 0.864,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "urgency_0": {
+          "type": "score",
+          "score": 1.44,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline or blocking issue"
+          },
+          "confidence": 0.1425,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "churn_risk_0": {
+          "type": "noul",
+          "noul": 0.8248,
+          "confidence": 0.8248,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "refund_requested_0": {
+          "type": "noul",
+          "noul": 0.843,
+          "confidence": 0.843,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "department_1": {
+          "type": "choice",
+          "choice": "billing",
+          "confidence": 0.864,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "urgency_1": {
+          "type": "score",
+          "score": 1.44,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline or blocking issue"
+          },
+          "confidence": 0.1425,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "churn_risk_1": {
+          "type": "noul",
+          "noul": 0.8248,
+          "confidence": 0.8248,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "refund_requested_1": {
+          "type": "noul",
+          "noul": 0.843,
+          "confidence": 0.843,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "department_2": {
+          "type": "choice",
+          "choice": "billing",
+          "confidence": 0.864,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "urgency_2": {
+          "type": "score",
+          "score": 1.44,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline or blocking issue"
+          },
+          "confidence": 0.1425,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      }
+    },
+    {
+      "label": "1 Frage, deutsch",
+      "questions": 1,
+      "routed_to": "multilingual",
+      "median_ms": 37.41674999764655,
+      "min_ms": 37.245500017888844,
+      "p95_ms": 37.630375009030104,
+      "per_question_ms": 37.41674999764655,
+      "answers": {
+        "department": {
+          "type": "choice",
+          "choice": "billing",
+          "confidence": 0.0642,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      }
+    },
+    {
+      "label": "1 Frage, hindi",
+      "questions": 1,
+      "routed_to": "multilingual",
+      "median_ms": 43.86199949658476,
+      "min_ms": 43.56533300597221,
+      "p95_ms": 44.32025001733564,
+      "per_question_ms": 43.86199949658476,
+      "answers": {
+        "department": {
+          "type": "choice",
+          "choice": "billing",
+          "confidence": 0.8958,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      }
+    }
+  ]
+}

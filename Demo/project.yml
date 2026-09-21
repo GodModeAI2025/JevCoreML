@@ -1,0 +1,35 @@
+name: JevDemo
+options:
+  bundleIdPrefix: dev.jevcoreml
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+packages:
+  JevDecisionKit:
+    path: ..
+targets:
+  JevDemo:
+    type: application
+    platform: macOS
+    sources:
+      - JevDemo
+    dependencies:
+      - package: JevDecisionKit
+        product: JevDecisionKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.jevcoreml.demo
+        PRODUCT_NAME: JevDemo
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "Jev Demo"
+        INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.developer-tools"
+        INFOPLIST_KEY_NSHumanReadableCopyright: "Apache 2.0"
+        # Die Demo liest Modelle aus einem frei gewählten Ordner. Eine App im Store bräuchte
+        # die Sandbox und legt die Modelle ins Bundle, siehe LayaRouted.bundled().
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: NO
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"

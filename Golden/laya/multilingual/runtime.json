@@ -1,0 +1,26 @@
+{
+  "checkpoint": "multilingual",
+  "encoder": "jhu-clsp/mmBERT-base",
+  "max_len": 1024,
+  "head_max_len": 256,
+  "option_token_limit": 48,
+  "head_min_tokens": 8,
+  "option_budget_floor": 16,
+  "pad_id": 0,
+  "cls_id": 2,
+  "sep_id": 1,
+  "mask_id": 4,
+  "mask_token": "<mask>",
+  "qtypes": {
+    "choice": 0,
+    "score": 1,
+    "noul": 2
+  },
+  "temperature": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "temperature_by_options": {},
+  "masked_logit": -10000.0
+}

@@ -1,0 +1,86 @@
+{
+  "requests": 6,
+  "questions": 11,
+  "max_abs_delta": 0.010000000000000009,
+  "choice_flips": 0,
+  "rows": [
+    {
+      "question": "department",
+      "type": "choice",
+      "max_abs_delta": 0.0,
+      "same_choice": true,
+      "latency_native_ms": 14.7,
+      "latency_reference_ms": 36.4
+    },
+    {
+      "question": "department",
+      "type": "choice",
+      "max_abs_delta": 0.0,
+      "same_choice": true
+    },
+    {
+      "question": "tone",
+      "type": "choice",
+      "max_abs_delta": 0.0,
+      "same_choice": true
+    },
+    {
+      "question": "urgency",
+      "type": "score",
+      "max_abs_delta": 0.0,
+      "same_choice": true,
+      "latency_native_ms": 15.0,
+      "latency_reference_ms": 47.0
+    },
+    {
+      "question": "billing",
+      "type": "noul",
+      "max_abs_delta": 0.0,
+      "same_choice": true
+    },
+    {
+      "question": "urgency",
+      "type": "score",
+      "max_abs_delta": 0.0,
+      "same_choice": true,
+      "latency_native_ms": 14.9,
+      "latency_reference_ms": 54.1
+    },
+    {
+      "question": "is_bug",
+      "type": "noul",
+      "max_abs_delta": 0.0,
+      "same_choice": true
+    },
+    {
+      "question": "team",
+      "type": "choice",
+      "max_abs_delta": 0.0,
+      "same_choice": true,
+      "latency_native_ms": 15.5,
+      "latency_reference_ms": 56.3
+    },
+    {
+      "question": "skill",
+      "type": "choice",
+      "max_abs_delta": 0.0,
+      "same_choice": true,
+      "latency_native_ms": 16.0,
+      "latency_reference_ms": 54.9
+    },
+    {
+      "question": "refund",
+      "type": "noul",
+      "max_abs_delta": 0.0,
+      "same_choice": true
+    },
+    {
+      "question": "eskalation",
+      "type": "score",
+      "max_abs_delta": 0.010000000000000009,
+      "same_choice": true,
+      "latency_native_ms": 16.4,
+      "latency_reference_ms": 54.5
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "task": "agnews",
+  "n": 1000,
+  "failed": 0,
+  "fair": "in beiden Trainingsmischungen",
+  "accuracy": 0.901,
+  "laya": 0.947,
+  "laya_routed": 0.95,
+  "jev": 0.91,
+  "median_latency_ms": 76.65131249814294,
+  "median_input_tokens": 119.0
+}

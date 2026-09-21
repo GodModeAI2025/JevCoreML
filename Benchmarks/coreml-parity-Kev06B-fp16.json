@@ -1,0 +1,24 @@
+{
+  "model": "Models/Kev06B-fp16.mlpackage",
+  "records": 6,
+  "units": {
+    "CPU_ONLY": {
+      "max_abs_logit_delta": 0.1435718536376953,
+      "max_abs_prob_delta": 0.009628496502714301,
+      "argmax_flips": 0,
+      "median_latency_ms": 252.37265949544962
+    },
+    "CPU_AND_GPU": {
+      "max_abs_logit_delta": 0.03419685363769531,
+      "max_abs_prob_delta": 0.0032593494905688303,
+      "argmax_flips": 0,
+      "median_latency_ms": 14.114117996844772
+    },
+    "ALL": {
+      "max_abs_logit_delta": 0.03419685363769531,
+      "max_abs_prob_delta": 0.0032593494905688303,
+      "argmax_flips": 0,
+      "median_latency_ms": 13.0559583340073
+    }
+  }
+}

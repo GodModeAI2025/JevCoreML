@@ -1,0 +1,23 @@
+{
+  "task": "agnews",
+  "checkpoint": "english",
+  "modell": "../Models/Laya-EN-L512-K512-fp16.mlpackage",
+  "backend": "gpu",
+  "n": 1000,
+  "uebersprungen_zu_lang": 0,
+  "gleiche_antwort": 1000,
+  "gleiche_antwort_quote": 1.0,
+  "max_dlogit": 0.04693794250488281,
+  "max_dp": 0.0036274194101659774,
+  "max_dkonfidenz": 0.0044553780993022984,
+  "treffer_laya": 0.929,
+  "treffer_port": 0.929,
+  "median_ms_laya": 135.27477100433316,
+  "zeitmessung": "laya ungepolstert wie system_one mit einer Frage, der Port in der kürzesten passenden Länge des Pakets; beide im selben Prozess abwechselnd, daher langsamer als in laya_baseline.py",
+  "zeilen_je_laenge": {
+    "128": 680,
+    "256": 320
+  },
+  "median_ms_port": 15.591208488331176,
+  "abweichungen": []
+}

@@ -1,0 +1,33 @@
+{
+  "checkpoint": "english",
+  "encoder": "answerdotai/ModernBERT-large",
+  "max_len": 512,
+  "head_max_len": 192,
+  "option_token_limit": 48,
+  "head_min_tokens": 8,
+  "option_budget_floor": 16,
+  "pad_id": 50283,
+  "cls_id": 50281,
+  "sep_id": 50282,
+  "mask_id": 50284,
+  "mask_token": "[MASK]",
+  "qtypes": {
+    "choice": 0,
+    "score": 1,
+    "noul": 2
+  },
+  "temperature": [
+    1.6369030475616455,
+    1.2514300346374512,
+    1.983399510383606
+  ],
+  "temperature_by_options": {
+    "choice:3-5": 1.7601518630981445,
+    "choice:6-10": 1.0000158548355103,
+    "score:3-5": 1.2514300346374512,
+    "noul:2": 1.983399510383606,
+    "choice:11+": 0.10058280825614929,
+    "choice:2": 1.9063563346862793
+  },
+  "masked_logit": -10000.0
+}

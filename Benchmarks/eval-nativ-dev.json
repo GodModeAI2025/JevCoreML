@@ -1,0 +1,118 @@
+{
+  "label": "nativ L1024 fp16",
+  "base": "http://127.0.0.1:8010",
+  "suite": "../vendor/kev/evals/v7/decision-v7/development.jsonl",
+  "records": 1204,
+  "records_answered": 1204,
+  "records_rejected": 0,
+  "questions_scored": 1468,
+  "accuracy": 0.8079019073569482,
+  "ece": 0.12638283378746604,
+  "mean_confidence": 0.8836171662125342,
+  "latency_ms": {
+    "median": 75.28385450132191,
+    "p95": 98.88658300042152,
+    "mean": 78.68892717518872
+  },
+  "coverage_curve": [
+    {
+      "threshold": 0.0,
+      "coverage": 1.0,
+      "accuracy": 0.8079019073569482,
+      "fallback_rate": 0.0
+    },
+    {
+      "threshold": 0.5,
+      "coverage": 0.9019073569482289,
+      "accuracy": 0.8376132930513596,
+      "fallback_rate": 0.09809264305177112
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.8862397820163488,
+      "accuracy": 0.8408916218293621,
+      "fallback_rate": 0.11376021798365121
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.864441416893733,
+      "accuracy": 0.8479117415287628,
+      "fallback_rate": 0.135558583106267
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.8365122615803815,
+      "accuracy": 0.8550488599348535,
+      "fallback_rate": 0.1634877384196185
+    },
+    {
+      "threshold": 0.85,
+      "coverage": 0.8119891008174387,
+      "accuracy": 0.860738255033557,
+      "fallback_rate": 0.1880108991825613
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.7404632152588556,
+      "accuracy": 0.8923643054277829,
+      "fallback_rate": 0.2595367847411444
+    },
+    {
+      "threshold": 0.95,
+      "coverage": 0.6491825613079019,
+      "accuracy": 0.925498426023085,
+      "fallback_rate": 0.35081743869209814
+    }
+  ],
+  "per_source": {
+    "agnews": {
+      "n": 300,
+      "accuracy": 0.9166666666666666
+    },
+    "amazon": {
+      "n": 80,
+      "accuracy": 0.525
+    },
+    "banking77": {
+      "n": 116,
+      "accuracy": 0.8103448275862069
+    },
+    "boolq": {
+      "n": 80,
+      "accuracy": 0.6875
+    },
+    "compositional": {
+      "n": 128,
+      "accuracy": 0.609375
+    },
+    "dbpedia14": {
+      "n": 116,
+      "accuracy": 0.9396551724137931
+    },
+    "imdb": {
+      "n": 80,
+      "accuracy": 0.8875
+    },
+    "legacy_policy": {
+      "n": 96,
+      "accuracy": 0.9375
+    },
+    "mnli": {
+      "n": 116,
+      "accuracy": 0.75
+    },
+    "sst5": {
+      "n": 80,
+      "accuracy": 0.6125
+    },
+    "trec": {
+      "n": 116,
+      "accuracy": 0.9396551724137931
+    },
+    "yelp": {
+      "n": 160,
+      "accuracy": 0.79375
+    }
+  },
+  "errors": []
+}

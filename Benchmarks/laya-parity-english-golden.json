@@ -1,0 +1,28 @@
+{
+  "model": "../Models/Laya-EN-L512-K512-fp16.mlpackage",
+  "checkpoint": "english",
+  "sequence_length": 512,
+  "sequence_lengths": [
+    128,
+    256,
+    512
+  ],
+  "max_options": 512,
+  "records": 15,
+  "backends": {
+    "GPU": {
+      "max_dlogit": 0.02476966381072998,
+      "max_dp": 0.002686721782491075,
+      "max_dwert": 0.004000000000000448,
+      "max_dconfidence": 0.0030999999999999917,
+      "max_dact_logit": 9.0810546875,
+      "max_dact_probability": 0.0,
+      "records_per_length": {
+        "128": 13,
+        "512": 2
+      },
+      "gekippte_entscheidungen": 0,
+      "details": []
+    }
+  }
+}

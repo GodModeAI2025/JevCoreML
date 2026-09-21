@@ -1,0 +1,30 @@
+{
+  "task": "emotion",
+  "checkpoint": "english",
+  "modell": "../Models/Laya-EN-L512-K512-fp16.mlpackage",
+  "backend": "gpu",
+  "n": 1000,
+  "uebersprungen_zu_lang": 0,
+  "gleiche_antwort": 999,
+  "gleiche_antwort_quote": 0.999,
+  "max_dlogit": 0.15148687362670898,
+  "max_dp": 0.02292079221325416,
+  "max_dkonfidenz": 0.02083514494082228,
+  "treffer_laya": 0.579,
+  "treffer_port": 0.578,
+  "median_ms_laya": 84.58629150118213,
+  "zeitmessung": "laya ungepolstert wie system_one mit einer Frage, der Port in der kürzesten passenden Länge des Pakets; beide im selben Prozess abwechselnd, daher langsamer als in laya_baseline.py",
+  "zeilen_je_laenge": {
+    "128": 1000
+  },
+  "median_ms_port": 15.148728984058835,
+  "abweichungen": [
+    {
+      "text": "i feel like i m going to struggle and fail and suffer and be really dumb",
+      "laya": "sadness",
+      "port": "fear",
+      "p_laya": 0.4978,
+      "p_port": 0.4977
+    }
+  ]
+}

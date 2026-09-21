@@ -1,0 +1,35 @@
+JevCoreML
+Copyright 2026 Mark Zimmermann
+
+Dieses Projekt steht unter der Apache License 2.0, siehe LICENSE.
+
+Die Core-ML-Modelle in den Releases sind Umwandlungen fremder Gewichte. Sie werden unter den
+Lizenzen der Originale weitergegeben.
+
+kev-0.6b
+  Jared Palmer, https://huggingface.co/jaredpalmer/kev-0.6b
+  Code: https://github.com/jaredpalmer/kev
+  Lizenz: Apache License 2.0
+  Aufgesetzt auf Qwen3-0.6B-Base, Qwen Team, https://huggingface.co/Qwen/Qwen3-0.6B-Base,
+  Apache License 2.0
+
+laya
+  ConvAI Innovations, https://huggingface.co/convaiinnovations/laya
+  Code: https://github.com/NandhaKishorM/laya
+  Lizenz: Apache License 2.0
+  Encoder: ModernBERT-large, Answer.AI, https://huggingface.co/answerdotai/ModernBERT-large,
+  Apache License 2.0; mmBERT-base, JHU CLSP, https://huggingface.co/jhu-clsp/mmBERT-base,
+  MIT License
+
+Was an den Modellen geändert wurde
+
+  Die Gewichte sind nicht nachtrainiert. Geändert ist die Form, in der sie gerechnet werden:
+  - Umwandlung nach Core ML (ML Program), Rechengenauigkeit fp16, Normalisierungen in fp32.
+  - kev: LoRA-Adapter in die Gewichte eingerechnet; mehrere Fragen je Durchlauf mit
+    block-kausaler Maske im Graphen.
+  - laya: Aufmerksamkeitsmaske mit endlichem Wert statt -inf und offener Diagonale, damit fp16
+    kein NaN liefert; Rotary-Tabellen in fp32 vorgerechnet; mehrere Eingabelängen je Paket;
+    Handlungskopf und Bewerter im selben Graphen.
+  Die Tokenizer-Dateien sind unverändert aus den Originalen übernommen.
+
+Die Umwandlung ist mit Exporter/ und scripts/reproduce.sh nachvollziehbar.
