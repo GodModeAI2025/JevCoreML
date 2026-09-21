@@ -27,9 +27,9 @@ Gleichstand zweier Klassen bei 0,4978 gegen 0,4977. Wie das geprüft ist, steht 
 ## Schnellstart
 
 Voraussetzung ist ein Mac mit Apple Silicon, macOS 15 und Xcode 16 oder neuer. Das Swift-Paket
-baut auch für iOS 18 und läuft im iPhone-Simulator, dort ohne GPU: kev trifft auf allen sechs
-Längen dieselben Entscheidungen wie PyTorch, die Wahrscheinlichkeiten liegen bis 0,01 daneben,
-beim gepackten Mehrfragenlauf bis 0,034; laya weicht bis 0,04 ab. Auf einem echten iPhone ist
+baut auch für iOS 18 und läuft im iPhone-Simulator, dort ohne GPU: kev trifft dieselben
+Entscheidungen wie PyTorch, die Wahrscheinlichkeiten liegen bis 0,01 daneben, beim gepackten
+Mehrfragenlauf bis 0,034; laya weicht bis 0,04 ab. Auf einem echten iPhone ist
 nichts gemessen, und die 1,1 GB des kev-Pakets sind dort ein anderes Kaliber als die 0,6 bis
 0,8 GB je laya-Checkpoint.
 
@@ -209,7 +209,7 @@ ausführlichen Berichte unter `docs/`:
 ```
 Sources/JevDecisionKit/   das Swift-Paket: Tokenizer, Laufzeiten, Router, Server
 Sources/jev/              Kommandozeile und HTTP-Server
-Tests/                    102 Tests gegen Referenzdaten aus den Originalen
+Tests/                    104 Tests gegen Referenzdaten aus den Originalen
 Models/                   die Core-ML-Pakete, geladen mit scripts/fetch-models.sh
 Demo/                     macOS-App in SwiftUI
 Benchmarks/               Messergebnisse als JSON
@@ -220,7 +220,7 @@ scripts/                  Modelle laden, packen, selbst bauen
 ```
 
 ```bash
-swift test                  # 102 Tests; die Pool-Tests brauchen zusätzlich die drei Zuschnitte aus models-v1
+swift test                  # 104 Tests; die Pool-Tests brauchen zusätzlich die drei Zuschnitte aus models-v1
 ```
 
 ## Selbst bauen
