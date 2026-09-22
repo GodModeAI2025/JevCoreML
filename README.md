@@ -11,26 +11,35 @@ Enthalten sind zwei Modelle, jeweils als `.mlpackage` zum Einbinden, dazu ein Sw
 sie rechnet, eine Kommandozeile mit HTTP-Server, eine Demo-App und die Messungen, die zeigen,
 dass die Pakete dasselbe antworten wie die Originale.
 
-| | laya | kev |
+| | JevCoreML | laya |
 |---|---|---|
-| Stärke | Trefferquote, über 100 Sprachen | mehrere Fragen in einem Durchlauf |
-| Aufbau | Encoder, drei Checkpoints, Router nach Schrift und Sprache | Decoder mit Pointer-Kopf |
-| Eine Frage | 9,0 ms englisch, 6,0 ms deutsch | 7,5 ms für eine kurze Anfrage, bis zu acht Fragen in einem Durchlauf |
-| Gegen das Original | 6- bis 12-mal schneller als laya in PyTorch | 2 von 1468 Antworten anders als kev in PyTorch, 19 statt 59 ms im Median |
-| Originalgewichte | [convaiinnovations/laya](https://huggingface.co/convaiinnovations/laya) | [jaredpalmer/kev-0.6b](https://huggingface.co/jaredpalmer/kev-0.6b) |
+| Stärke | mehrere Fragen in einem Durchlauf, lange Zustände, viele Optionen, ein Paket | Trefferquote, über 100 Sprachen |
+| Aufbau | Decoder mit Pointer-Kopf, Gewichte kev-0.6b auf Qwen3-0.6B-Base | Encoder, drei Checkpoints, Router nach Schrift und Sprache |
+| Eine Frage | 7,5 ms für eine kurze Anfrage, bis zu acht Fragen in einem Durchlauf | 9,0 ms englisch, 6,0 ms deutsch |
+| Gegen das Original | 2 von 1468 Antworten anders als kev in PyTorch, 19 statt 59 ms im Median | 6- bis 12-mal schneller als laya in PyTorch |
+| Originalgewichte | [jaredpalmer/kev-0.6b](https://huggingface.co/jaredpalmer/kev-0.6b) | [convaiinnovations/laya](https://huggingface.co/convaiinnovations/laya) |
 
 Die Originale laufen in PyTorch. Hier sind sie nach Core ML übertragen und bis auf fp16-Rauschen
 gleich: 1000 von 1000 Antworten auf AG News, 999 von 1000 auf Emotion, die eine Abweichung ein
 Gleichstand zweier Klassen bei 0,4978 gegen 0,4977. Wie das geprüft ist, steht unter
 [Wie genau, wie schnell](#wie-genau-wie-schnell).
 
+**Welches nehmen?** JevCoreML zuerst. Es ist ein Paket statt drei, beantwortet mehrere Fragen
+in einem Durchlauf, nimmt Zustände bis 3072 Token und bis zu 256 Optionen je Frage, und sein
+Server versteht bestehende Jev-Clients. laya lohnt sich, wenn die Texte in vielen Sprachen
+kommen (der mehrsprachige Checkpoint ist über 100 Sprachen gemessen, JevCoreML ist auf
+englischen Daten trainiert und auf Deutsch nicht vermessen), wenn eine App klein bleiben muss
+(JevCoreML belegt geladen bis zu 18 GB im Temp-Verzeichnis, laya unter einem), oder wenn es um
+eine einzelne Klassifikationsfrage mit hoher Trefferquote geht (AG News 92,9 %). Beide liefern
+dieselbe Antwortform, ein Wechsel kostet eine Zeile.
+
 ## Schnellstart
 
 Voraussetzung ist ein Mac mit Apple Silicon, macOS 15 und Xcode 16 oder neuer. Das Swift-Paket
-baut auch für iOS 18 und läuft im iPhone-Simulator, dort ohne GPU: kev trifft dieselben
+baut auch für iOS 18 und läuft im iPhone-Simulator, dort ohne GPU: JevCoreML trifft dieselben
 Entscheidungen wie PyTorch, die Wahrscheinlichkeiten liegen bis 0,01 daneben, beim gepackten
 Mehrfragenlauf bis 0,034; laya weicht bis 0,04 ab. Auf einem echten iPhone ist
-nichts gemessen, und die 1,1 GB des kev-Pakets sind dort ein anderes Kaliber als die 0,6 bis
+nichts gemessen, und die 1,1 GB von JevCoreML sind dort ein anderes Kaliber als die 0,6 bis
 0,8 GB je laya-Checkpoint.
 
 ```bash
@@ -85,7 +94,7 @@ Fertige Fragensätze aus laya liegen als `LayaPresets` bereit: `triage()`, `emai
 `guardrails()`, `moderation()` und `router()`. `LayaEmail.state(subject:body:)` bereitet eine
 Mail so auf, wie laya es tut, ohne zitierten Verlauf und Signaturen.
 
-kev wird genauso eingebunden, mit `SystemOne` statt `LayaRouted`:
+JevCoreML wird genauso eingebunden, mit `SystemOne` statt `LayaRouted`:
 
 ```swift
 let kev = try SystemOne(modelURL: modelsURL.appending(path: "JevCoreML.mlpackage"),
@@ -93,7 +102,7 @@ let kev = try SystemOne(modelURL: modelsURL.appending(path: "JevCoreML.mlpackage
 let response = try await kev.answer(JevRequest(state: ticket, questions: questions))
 ```
 
-Das kev-Paket nimmt sechs Eingabelängen von 128 bis 3072 Token an, bis zu acht Fragen je
+JevCoreML nimmt sechs Eingabelängen von 128 bis 3072 Token an, bis zu acht Fragen je
 Durchlauf und 256 Optionen je Frage. Die Laufzeit rechnet jede Anfrage in der kürzesten Länge,
 in die sie passt; es gibt nichts auszuwählen und nichts zu konfigurieren.
 
@@ -101,10 +110,10 @@ Gut zu wissen:
 
 - **Rechenwerk.** Beide Modelle laufen auf der GPU, auch wenn `.all` angegeben ist. Bei laya
   hat die Neural Engine die ersten Exporte falsch gerechnet, die jetzigen richtig, aber 40-mal
-  langsamer. Bei kev legte der Planer von Core ML das Paket mit sechs Längen unter `.all` auf
+  langsamer. Bei JevCoreML legte der Planer von Core ML das Paket mit sechs Längen unter `.all` auf
   die CPU: 394 ms statt 8 für eine kurze Anfrage. `allowNeuralEngine: true` hebt die Festlegung
   auf.
-- **Erste Anfrage.** Laden und Vorbereiten dauern bei laya ein bis zwei Sekunden, bei kev rund
+- **Erste Anfrage.** Laden und Vorbereiten dauern bei laya ein bis zwei Sekunden, bei JevCoreML rund
   4 s fürs Laden und 13 s Warmlauf, weil die GPU jede der sechs Längen einmal vorbereitet.
   `warmUp()` beim Start im Hintergrund aufrufen, dann wartet keine Anfrage darauf. Wer nur kurze
   Anfragen sieht, gibt `sequenceLengths: [128, 256, 512]` an (CLI: `--lengths`); die größte
@@ -112,8 +121,8 @@ Gut zu wissen:
   ein kürzerer Warmlauf.
 - **Größe.** laya braucht je Checkpoint 0,6 bis 0,8 GB. Wer nur Englisch sieht, nimmt nur
   `Laya-EN`; fehlt ein Checkpoint, weicht der Router aus und sagt das in `reason`.
-- **kev und Platte.** Ein geladenes kev-Paket legt im Temp-Verzeichnis bis zu 14 GB ab, bis der
-  Prozess endet. Das Paket JevCoreML tut das einmal, nicht je Länge: die zweite Instanz lud in
+- **JevCoreML und Platte.** Das geladene Paket legt im Temp-Verzeichnis bis zu 18 GB ab, bis der
+  Prozess endet, und zwar einmal, nicht je Länge: die zweite Instanz lud in
   0,2 s und legte keine einzige Datei mehr an. Für eine App ist laya trotzdem die leichtere Wahl.
 
 ## Kommandozeile und HTTP-Server
@@ -143,14 +152,14 @@ Zuschnitten des älteren Releases, nur noch für den Vergleich.
 | `Laya-EN-L512-K512-fp16` | laya, english | 128, 256, 512 | 1 | 512 | 805 MiB |
 | `Laya-ML-L1024-K1024-fp16` | laya, multilingual | 128 bis 1024 | 1 | 1024 | 615 MiB |
 | `Laya-TD-L1024-K1024-fp16` | laya, typed-decisions | 128 bis 1024 | 1 | 1024 | 805 MiB |
-| `JevCoreML` | kev-0.6b | 128, 256, 512, 1024, 2048, 3072 | 8 je Durchlauf | 256 | 1,1 GiB |
+| `JevCoreML` | Decoder, Gewichte kev-0.6b | 128, 256, 512, 1024, 2048, 3072 | 8 je Durchlauf | 256 | 1,1 GiB |
 
 Jedes Paket nimmt mehrere Eingabelängen an, und die Laufzeit rechnet eine Anfrage in der
 kürzesten, in die sie passt. laya selbst rechnet genauso nur so lang, wie eine Frage ist. Eine
 laya-Frage darf so viele Optionen haben, wie in die Sequenz passen, wie im Original: 169 auf
 dem englischen Checkpoint, bis 340 auf typed-decisions.
 
-Bei kev ist das eine Paket der ganze Zuschnitt: Fragen und Optionen wirken nur im Pointer-Kopf,
+Bei JevCoreML ist das eine Paket der ganze Zuschnitt: Fragen und Optionen wirken nur im Pointer-Kopf,
 also durften sie großzügig sein, ohne die Latenz zu berühren; die hängt allein an der Länge, und
 die wählt die Laufzeit. Gemessen je Länge in Python über coremltools (`Exporter/verify_fanout.py`),
 GPU, eine gepackte Anfrage mit zwei Fragen und 45 Token; die Swift-Laufzeit misst für die
@@ -164,7 +173,7 @@ Bei 512 Token sind die Logits auf der GPU bitgleich mit dem bisherigen festen Ex
 drei getrennten Zuschnitte aus dem Release `models-v1` (`Kev06B-Q4`, `Kev06B-L256-Q4`,
 `Kev06B-L1024-Q4K96`) laufen weiter und liefern dieselben Zahlen.
 
-**Zur Benennung.** Das Projekt und das kev-Paket heißen JevCoreML, weil sie die Fähigkeiten
+**Zur Benennung.** Das Projekt und sein Entscheidungspaket heißen JevCoreML, weil sie die Fähigkeiten
 nachbilden, die TypeSafe für Jev beschreibt. Sie sind nicht Jev. Die Gewichte im Paket sind
 kev-0.6b von Jared Palmer auf Qwen3-0.6B-Base, eine unabhängige Rekonstruktion; Herkunft und
 Lizenz stehen in `NOTICE` und in den Metadaten des Pakets.
@@ -180,15 +189,15 @@ dieselbe gerundete Stufe. Darunter liegen die Zahlen um fp16-Rauschen auseinande
 | laya, AG News und Emotion, je 1000 Zeilen | 1000/1000 und 999/1000, Trefferquote 92,9 % und 57,8 % |
 | laya über HTTP gegen `Router.predict` | 14 Anfragen in derselben Form, 26/26 Entscheidungen |
 | laya, Routing nach Schrift und Sprache | 116/116 |
-| kev, ganze Entwicklungssuite, 1468 Fragen | 2 abweichende Antworten, 80,79 % gegen 80,93 % in PyTorch |
-| Tokenizer | laya 31 238 Fälle, kev 15 032, alle byte-identisch, dazu jeder Unicode-Codepunkt einzeln |
+| JevCoreML gegen kev in PyTorch, ganze Entwicklungssuite, 1468 Fragen | 2 abweichende Antworten, 80,79 % gegen 80,93 % |
+| Tokenizer | laya 31 238 Fälle, JevCoreML 15 032, alle byte-identisch, dazu jeder Unicode-Codepunkt einzeln |
 
 | Fall | Original | JevCoreML | Faktor |
 |---|---|---|---|
 | laya, 1 Frage, englisch | 112,9 ms | **9,0 ms** | 12,5× |
 | laya, 4 Fragen, englisch | 314,8 ms | **33,6 ms** | 9,4× |
 | laya, 1 Frage, deutsch | 37,4 ms | **6,0 ms** | 6,2× |
-| kev, Entwicklungssuite über HTTP, 1468 Fragen | 59 ms | **19 ms** | 3,1× |
+| JevCoreML, Entwicklungssuite über HTTP, 1468 Fragen | 59 ms | **19 ms** | 3,1× |
 
 Gemessen auf einem M5 Max. laya im Original läuft als PyTorch auf der CPU, so wie es sich selbst
 misst; kev im Original als `kev.serve` in PyTorch auf der GPU, der Port mit `JevCoreML.mlpackage`

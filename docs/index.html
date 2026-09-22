@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JevCoreML</title>
-<meta name="description" content="Entscheidungsmodelle als fertige Core-ML-Pakete für den Mac: laya und kev, lokal, ohne Python, ohne Netz, in Millisekunden.">
+<meta name="description" content="Entscheidungsmodelle als fertige Core-ML-Pakete für den Mac: JevCoreML und laya, lokal, ohne Python, ohne Netz, in Millisekunden.">
 <meta property="og:title" content="JevCoreML">
-<meta property="og:description" content="laya und kev als Core-ML-Pakete: eine kalibrierte Entscheidung in 6 bis 10 Millisekunden, direkt auf dem Mac.">
+<meta property="og:description" content="JevCoreML und laya als Core-ML-Pakete: eine kalibrierte Entscheidung in 6 bis 10 Millisekunden, direkt auf dem Mac.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a66ff'/%3E%3Cpath d='M36 8 18 36h12l-4 20 20-30H34z' fill='white'/%3E%3C/svg%3E">
 <style>
 :root {
@@ -220,7 +220,7 @@ footer .wrap { display: grid; gap: 10px; }
     <span class="eyebrow">Core ML · Swift · macOS</span>
     <h1>Entscheidungen in Millisekunden, direkt auf dem Mac.</h1>
     <p class="lede">
-      Zwei Entscheidungsmodelle, laya und kev, als fertige Core-ML-Pakete. Ein Text geht hinein,
+      Zwei Entscheidungsmodelle, JevCoreML und laya, als fertige Core-ML-Pakete. Ein Text geht hinein,
       eine kalibrierte Entscheidung kommt heraus: Auswahl, Stufe oder Ja/Nein, mit
       Wahrscheinlichkeiten. Gerechnet auf der eigenen GPU, ohne Python, ohne Server, ohne Netz.
     </p>
@@ -256,7 +256,7 @@ footer .wrap { display: grid; gap: 10px; }
         <div class="card">
           <div class="kind">Auswahl</div>
           <h3>An welches Team geht das Ticket?</h3>
-          <p>Bis 256 Optionen bei kev, bei laya so viele, wie in die Sequenz passen.</p>
+          <p>Bis 256 Optionen bei JevCoreML, bei laya so viele, wie in die Sequenz passen.</p>
           <div class="answer">
             <div class="row"><span>billing</span><div class="bar"><i style="width:100%"></i></div><span class="pct">100 %</span></div>
             <div class="row"><span>sales</span><div class="bar"><i style="width:0%"></i></div><span class="pct">0 %</span></div>
@@ -286,20 +286,34 @@ footer .wrap { display: grid; gap: 10px; }
 
       <div class="split">
         <div class="card">
-          <div class="kind">laya</div>
-          <h3>Über 100 Sprachen, mit Router</h3>
-          <p>Drei Checkpoints: englisch, mehrsprachig und einer für vier feste Abläufe. Der Router
-          liest Schrift und Sprache des Textes und wählt den passenden, genau wie das Original.
-          Fertige Fragensätze für Support, E-Mail, Guardrails, Moderation und Modellwahl sind dabei.</p>
-        </div>
-        <div class="card">
-          <div class="kind">kev</div>
-          <h3>Mehrere Fragen, ein Durchlauf</h3>
-          <p>Ein Decoder, der bis zu acht Fragen zum selben Text in einem Durchlauf beantwortet.
+          <div class="kind">JevCoreML, die Empfehlung</div>
+          <h3>Mehrere Fragen, ein Durchlauf, ein Paket</h3>
+          <p>Ein Decoder mit Pointer-Kopf (Gewichte: kev-0.6b auf Qwen3-0.6B-Base), der bis zu acht
+          Fragen zum selben Text in einem Durchlauf beantwortet, mit bis zu 256 Optionen je Frage und
+          Zuständen bis 3072 Token. Ein Paket für alle Fälle, die Laufzeit wählt die Länge selbst.
           Der HTTP-Server spricht das Format der TypeSafe-API; bestehende Clients zeigen einfach
           auf <code class="mono">localhost</code>.</p>
         </div>
+        <div class="card">
+          <div class="kind">laya</div>
+          <h3>Über 100 Sprachen, mit Router</h3>
+          <p>Ein Encoder in drei Checkpoints: englisch, mehrsprachig und einer für vier feste Abläufe.
+          Der Router liest Schrift und Sprache des Textes und wählt den passenden, genau wie das
+          Original. Eine Frage je Durchlauf, dafür klein (0,6 bis 0,8 GB je Checkpoint) und mit fertigen
+          Fragensätzen für Support, E-Mail, Guardrails, Moderation und Modellwahl.</p>
+        </div>
       </div>
+      <h3 style="margin-top:36px">Welches nehmen?</h3>
+      <p class="sub" style="margin-bottom:0">
+        JevCoreML zuerst. Es ist ein Paket statt drei, beantwortet mehrere Fragen in einem
+        Durchlauf, nimmt lange Zustände und viele Optionen, und sein Server versteht bestehende
+        Jev-Clients. laya lohnt sich, wenn die Texte in vielen Sprachen kommen (der mehrsprachige
+        Checkpoint ist über 100 Sprachen gemessen, JevCoreML ist auf englischen Daten trainiert und
+        auf Deutsch nicht vermessen), wenn eine App klein bleiben muss (JevCoreML belegt geladen
+        bis zu 18 GB im Temp-Verzeichnis, laya unter einem), oder wenn es um eine einzelne
+        Klassifikationsfrage mit hoher Trefferquote geht (AG News 92,9 %). Beide liefern dieselbe
+        Antwortform, ein Wechsel kostet eine Zeile.
+      </p>
     </div>
   </section>
 
@@ -318,7 +332,7 @@ footer .wrap { display: grid; gap: 10px; }
             <tr><td>laya, 4 Fragen, englisch</td><td class="num">314,8 ms</td><td class="num"><strong>33,6 ms</strong></td><td class="num">9,4×</td></tr>
             <tr><td>laya, 10 Fragen, englisch</td><td class="num">709,2 ms</td><td class="num"><strong>83,4 ms</strong></td><td class="num">8,5×</td></tr>
             <tr><td>laya, 1 Frage, deutsch</td><td class="num">37,4 ms</td><td class="num"><strong>6,0 ms</strong></td><td class="num">6,2×</td></tr>
-            <tr><td>kev, ganze Suite über HTTP, 1468 Fragen</td><td class="num">59 ms</td><td class="num"><strong>19 ms</strong></td><td class="num">3,1×</td></tr>
+            <tr><td>JevCoreML, ganze Suite über HTTP, 1468 Fragen</td><td class="num">59 ms</td><td class="num"><strong>19 ms</strong></td><td class="num">3,1×</td></tr>
           </tbody>
         </table>
       </div>
@@ -332,7 +346,7 @@ footer .wrap { display: grid; gap: 10px; }
             <tr><td>laya, AG News, 1000 Zeilen</td><td><span class="good">1000/1000</span>, Trefferquote 92,9 % auf beiden Seiten</td></tr>
             <tr><td>laya, DAIR Emotion, 1000 Zeilen</td><td><span class="good">999/1000</span>, die eine ein Gleichstand bei 0,4978 gegen 0,4977</td></tr>
             <tr><td>laya über HTTP gegen <code class="mono">Router.predict</code></td><td><span class="good">26/26</span> Entscheidungen, Antwort Feld für Feld gleich</td></tr>
-            <tr><td>kev, ganze Entwicklungssuite, 1468 Fragen</td><td>2 abweichende Antworten, 80,79 % gegen 80,93 %</td></tr>
+            <tr><td>JevCoreML gegen kev in PyTorch, ganze Entwicklungssuite, 1468 Fragen</td><td>2 abweichende Antworten, 80,79 % gegen 80,93 %</td></tr>
           </tbody>
         </table>
       </div>
@@ -385,7 +399,7 @@ curl -s localhost:8008/v1/systemone -d <span class="s">'{
 
       <h3 id="start" style="margin-top:44px">In vier Schritten zur ersten Entscheidung</h3>
       <ol class="steps" style="margin-top:16px">
-        <li><div>Repo klonen. Voraussetzung ist ein Mac mit Apple Silicon, macOS 15 und Xcode 16. Das Swift-Paket baut auch für iOS 18 und läuft im iPhone-Simulator, dort ohne GPU: kev trifft dieselben Entscheidungen wie PyTorch, die Wahrscheinlichkeiten liegen bis 0,01 daneben, beim gepackten Mehrfragenlauf bis 0,034; laya weicht bis 0,04 ab. Auf einem echten iPhone ist nichts gemessen.</div></li>
+        <li><div>Repo klonen. Voraussetzung ist ein Mac mit Apple Silicon, macOS 15 und Xcode 16. Das Swift-Paket baut auch für iOS 18 und läuft im iPhone-Simulator, dort ohne GPU: JevCoreML trifft dieselben Entscheidungen wie PyTorch, die Wahrscheinlichkeiten liegen bis 0,01 daneben, beim gepackten Mehrfragenlauf bis 0,034; laya weicht bis 0,04 ab. Auf einem echten iPhone ist nichts gemessen.</div></li>
         <li><div><code>scripts/fetch-models.sh</code> lädt die Core-ML-Pakete aus dem Release und prüft die Prüfsummen.</div></li>
         <li><div><code>Demo/JevDemo.xcodeproj</code> öffnen und starten, oder <code>swift build</code> für die Kommandozeile.</div></li>
         <li><div>In der eigenen App das Paket einbinden und die Modelle als Ressourcen ins Target legen.</div></li>
@@ -407,7 +421,7 @@ curl -s localhost:8008/v1/systemone -d <span class="s">'{
         <table>
           <thead><tr><th>Paket</th><th>Wofür</th><th class="num">Längen</th><th class="num">Fragen</th><th class="num">Optionen</th><th class="num">Größe</th><th>Download</th></tr></thead>
           <tbody>
-            <tr><td class="mono">JevCoreML</td><td>kev-0.6b, ein Paket für alle Anwendungsfälle</td><td class="num">128–3072</td><td class="num">8</td><td class="num">256</td><td class="num">1,1 GiB</td><td><a href="https://github.com/GodModeAI2025/JevCoreML/releases/download/models-v2/JevCoreML.mlpackage.zip">ZIP, 1,05 GB</a></td></tr>
+            <tr><td class="mono">JevCoreML</td><td>ein Paket für alle Anwendungsfälle, Gewichte kev-0.6b</td><td class="num">128–3072</td><td class="num">8</td><td class="num">256</td><td class="num">1,1 GiB</td><td><a href="https://github.com/GodModeAI2025/JevCoreML/releases/download/models-v2/JevCoreML.mlpackage.zip">ZIP, 1,05 GB</a></td></tr>
             <tr><td class="mono">Laya-EN-L512-K512-fp16</td><td>englischer Text</td><td class="num">128–512</td><td class="num">1</td><td class="num">512</td><td class="num">805 MiB</td><td><a href="https://github.com/GodModeAI2025/JevCoreML/releases/download/models-v2/Laya-EN-L512-K512-fp16.mlpackage.zip">ZIP, 778 MB</a></td></tr>
             <tr><td class="mono">Laya-ML-L1024-K1024-fp16</td><td>alle anderen Sprachen</td><td class="num">128–1024</td><td class="num">1</td><td class="num">1024</td><td class="num">615 MiB</td><td><a href="https://github.com/GodModeAI2025/JevCoreML/releases/download/models-v2/Laya-ML-L1024-K1024-fp16.mlpackage.zip">ZIP, 594 MB</a></td></tr>
             <tr><td class="mono">Laya-TD-L1024-K1024-fp16</td><td>vier feste Abläufe, auf Wunsch</td><td class="num">128–1024</td><td class="num">1</td><td class="num">1024</td><td class="num">805 MiB</td><td><a href="https://github.com/GodModeAI2025/JevCoreML/releases/download/models-v2/Laya-TD-L1024-K1024-fp16.mlpackage.zip">ZIP, 778 MB</a></td></tr>
@@ -417,10 +431,10 @@ curl -s localhost:8008/v1/systemone -d <span class="s">'{
       </div>
       <p class="note">Prüfsummen: <a href="https://github.com/GodModeAI2025/JevCoreML/releases/download/models-v2/SHA256SUMS">SHA256SUMS</a>. Entpackt liegt jedes Paket als <code>.mlpackage</code> vor, das Xcode beim Bauen übersetzt.</p>
 
-      <h3 id="jevcoreml-paket" style="margin-top:44px">Das kev-Paket: eines für alles</h3>
+      <h3 id="jevcoreml-paket" style="margin-top:44px">JevCoreML: ein Paket für alles</h3>
       <p class="sub">
-        kev-0.6b ist ein Decoder mit Pointer-Kopf auf Qwen3-0.6B-Base, hier nach Core ML
-        übertragen, fp16, 1,1 GB. Früher gab es davon drei Zuschnitte für drei Längen, und man musste
+        JevCoreML ist ein Decoder mit Pointer-Kopf, die Gewichte sind kev-0.6b auf Qwen3-0.6B-Base,
+        nach Core ML übertragen, fp16, 1,1 GB. Früher gab es davon drei Zuschnitte für drei Längen, und man musste
         wissen, welcher zur Anfrage passt. Jetzt trägt ein Paket alle sechs Längen als aufgezählte
         Eingabeformen, und die Laufzeit rechnet jede Anfrage in der kürzesten, in die sie passt.
         Eine kurze Frage kostet 7,5 ms, ein langer Zustand mit 3000 Token 270 ms, ohne dass jemand
@@ -472,7 +486,7 @@ curl -s localhost:8008/v1/systemone -d <span class="s">'{
         plausible Antworten, nur manchmal andere.
       </p>
       <ul class="checks">
-        <li><b>Tokenizer.</b> 31 238 Fälle bei laya, 15 032 bei kev, byte-identisch, dazu jeder Unicode-Codepunkt einzeln.</li>
+        <li><b>Tokenizer.</b> 31 238 Fälle bei laya, 15 032 bei JevCoreML, byte-identisch, dazu jeder Unicode-Codepunkt einzeln.</li>
         <li><b>Encoder.</b> Die Sequenz Token für Token gegen die des Originals, samt Kürzungsregeln.</li>
         <li><b>Modell.</b> Logits gegen PyTorch auf Referenzanfragen und zwei öffentlichen Datensätzen.</li>
         <li><b>Router.</b> 116 Entscheidungen über Schrift, Sprache und Vorrang, alle gleich.</li>

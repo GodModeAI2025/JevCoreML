@@ -14,7 +14,7 @@ scripts/fetch-models.sh alle     # beides
 | `Laya-EN-L512-K512-fp16.mlpackage` | laya, english | 128, 256, 512 | 1 | 512 | 805 MiB |
 | `Laya-ML-L1024-K1024-fp16.mlpackage` | laya, multilingual | 128 bis 1024 | 1 | 1024 | 615 MiB |
 | `Laya-TD-L1024-K1024-fp16.mlpackage` | laya, typed-decisions | 128 bis 1024 | 1 | 1024 | 805 MiB |
-| `JevCoreML.mlpackage` | kev-0.6b, alle Anwendungsfälle | 128, 256, 512, 1024, 2048, 3072 | 8 je Durchlauf | 256 | 1,1 GiB |
+| `JevCoreML.mlpackage` | JevCoreML, alle Anwendungsfälle, Gewichte kev-0.6b | 128, 256, 512, 1024, 2048, 3072 | 8 je Durchlauf | 256 | 1,1 GiB |
 | `laya-tokenizer-english.json` | Tokenizer für english und typed-decisions | | | | 3,6 MB |
 | `laya-tokenizer-multilingual.json` | Tokenizer für multilingual | | | | 34 MB |
 | `tokenizer.json` | Tokenizer für kev | | | | 11 MB |

@@ -40,7 +40,7 @@ Quelle: `laya-vergleich.json` (Kommandozeile, Median aus 25 Läufen) gegen `laya
 Rechenwerke im Vergleich, `laya-backends-EN.json`: GPU 6,3 ms, CPU 85,7 ms, Neural Engine
 268,4 ms, alle drei mit richtigen Antworten.
 
-## kev
+## JevCoreML (Gewichte kev-0.6b)
 
 | Prüfung | Ergebnis | Datei |
 |---|---|---|
