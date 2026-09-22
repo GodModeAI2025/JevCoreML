@@ -183,7 +183,7 @@ dieselbe gerundete Stufe. Darunter liegen die Zahlen um fp16-Rauschen auseinande
 | kev, ganze Entwicklungssuite, 1468 Fragen | 2 abweichende Antworten, 80,79 % gegen 80,93 % in PyTorch |
 | Tokenizer | laya 31 238 Fälle, kev 15 032, alle byte-identisch, dazu jeder Unicode-Codepunkt einzeln |
 
-| Fall | Original | Core ML | Faktor |
+| Fall | Original | JevCoreML | Faktor |
 |---|---|---|---|
 | laya, 1 Frage, englisch | 112,9 ms | **9,0 ms** | 12,5× |
 | laya, 4 Fragen, englisch | 314,8 ms | **33,6 ms** | 9,4× |

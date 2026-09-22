@@ -25,7 +25,7 @@ Port `fear` mit 0,4977.
 
 ### Tempo
 
-| Fall | laya, PyTorch CPU | Core ML | Faktor |
+| Fall | laya, PyTorch CPU | JevCoreML | Faktor |
 |---|---|---|---|
 | 1 Frage, englisch | 112,9 ms | **9,0 ms** | 12,5× |
 | 4 Fragen, englisch | 314,8 ms | **33,6 ms** | 9,4× |
