@@ -152,7 +152,7 @@ Zuschnitten des älteren Releases, nur noch für den Vergleich.
 | `Laya-EN-L512-K512-fp16` | laya, english | 128, 256, 512 | 1 | 512 | 805 MiB |
 | `Laya-ML-L1024-K1024-fp16` | laya, multilingual | 128 bis 1024 | 1 | 1024 | 615 MiB |
 | `Laya-TD-L1024-K1024-fp16` | laya, typed-decisions | 128 bis 1024 | 1 | 1024 | 805 MiB |
-| `JevCoreML` | Decoder, Gewichte kev-0.6b | 128, 256, 512, 1024, 2048, 3072 | 8 je Durchlauf | 256 | 1,1 GiB |
+| **`JevCoreML`** | **Decoder, ein Paket für alles**, Gewichte kev-0.6b | 128, 256, 512, 1024, 2048, 3072 | 8 je Durchlauf | 256 | 1,1 GiB |
 
 Jedes Paket nimmt mehrere Eingabelängen an, und die Laufzeit rechnet eine Anfrage in der
 kürzesten, in die sie passt. laya selbst rechnet genauso nur so lang, wie eine Frage ist. Eine
